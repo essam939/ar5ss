@@ -1,0 +1,8 @@
+{
+  "name": "ar5ss",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
