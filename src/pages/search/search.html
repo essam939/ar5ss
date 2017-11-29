@@ -1,0 +1,31 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><span>Search</span></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <div class="imgdiv">
+      <img src="assets/imgs/new_search.png">
+       <ion-input class="searchbar" type="text" placeholder="What Are you looking for?">
+    </ion-input>
+    </div>
+
+    <div class="barcode">
+      <img src="assets/imgs/search_qr.png" (click)="scan()" >
+      <p>looking for product details</p>
+      <h4>Scan a barcode</h4>
+    </div>
+
+
+</ion-content>

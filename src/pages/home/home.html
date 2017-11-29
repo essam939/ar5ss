@@ -1,14 +1,193 @@
-<ion-header>
+<ion-header class="titlespace">
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      <!--<span>{{ 'Main' | translate }}</span>-->
+      <!--<span class="titlelogo"><img src="assets/imgs/logo.png"></span>-->
+      <span class="titlelogo">أرخص<img src="assets/imgs/navigate-arrows.png"></span>
+
+      <div style="float:right" >
+       <!--<ion-icon style="padding-right: 13px;" ios="ios-notifications-outline" md="md-notifications-outline"></ion-icon>-->
+       <p class="cartNo">{{ cartNo }}</p>
+       <ion-icon (click)="goToCart()">
+         <img style="width: 20px;" *ngIf="cartNo == 0" src="assets/imgs/cart_off.png">
+         <img style="width: 20px;" *ngIf="cartNo > 0" src="assets/imgs/cart_on.png">
+       </ion-icon>
+       </div>
+      <!--<ion-icon style="float: left;color: crimson;" name="pin">-->
+        <!--<ion-select [(ngModel)]="customerService.cityName" [placeholder]="customerService.cityName" (ionChange)="getGroupShow()">-->
+          <!--<ion-option *ngFor="let city of cities" [value]="city.city_nameen">{{(MainService.lang == 'ar') ? city.city_name : city.city_nameen}}</ion-option>-->
+        <!--</ion-select>-->
+      <!--</ion-icon>-->
+
+        <ion-select [(ngModel)]="customerService.cityName" [placeholder]="customerService.cityName" (ionChange)="getGroupShow()">
+          <ion-option *ngFor="let city of cities" [value]="city.city_nameen">
+            {{(MainService.lang == 'ar') ? city.city_name : city.city_nameen}}
+          </ion-option>
+        </ion-select>
+
     </ion-title>
   </ion-navbar>
+
+  <!--<ion-item class="headitem">-->
+<ion-row>
+
+
+  <ion-col col-9 style="padding:0">
+    <ion-searchbar [(ngModel)]="KeyWord" (ionInput)="searchProduct()"  type="text" placeholder="{{ 'Search' | translate}}"> </ion-searchbar></ion-col>
+  <ion-col col-3 style="padding:0">
+       <div style="text-align: center;background: white;padding-top: 10px;height: 42px;" (click)="scan()">
+    <img style="width: 22px;" src="assets/imgs/barcode.png">
+       </div>
+    </ion-col>
+</ion-row>
+
+
+
+
+  <!--</ion-item>-->
+
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <!--(ionSlideDidChange)="slideChanged()"-->
+<div *ngIf="hotads?.Slider.length > 0" class="imgdiv">
+  <ion-slides *ngIf="hotads?.Mode[0].Mode == 1"  pager="true" [autoplay]="5000" [loop]="true" dir="ltr"><!-- loop="true" -->
+    <ion-slide 
+      *ngFor="let image of hotads.Slider" (click)="goToHotOffers(image.CategoryID , image.ProductID)"
+      style="background-size: cover;" [style.background-image]="getBackground(image.Image)"
+      >
+    </ion-slide>
+    <ion-slides *ngIf="hotads?.Mode[0].Mode != 1" pager dir="ltr">
+      <ion-slide 
+        *ngFor="let image of hotads.Slider"(click)="goToHotOffers(image.CategoryID , image.ProductID)"
+        style="background-size: cover;" [style.background-image]="getBackground(image.Image)"
+        >
+      </ion-slide>
+    </ion-slides>
+  </ion-slides>
+
+</div>
+
+<div *ngIf="!showSearch" style="margin-bottom: 50px;">
+  <div  class="products" *ngFor="let group of groupShow">
+     <h6 class="prodh6" (click)="goToGroupProducts(group.Group.GroupShowID , group.Group.group_name)">
+       {{group.Group.group_name}}
+     </h6>
+    <!--<span >-->
+       <!--{{group.Group.Item}}/<span  style="font-weight: bold;-->
+                                                <!--color: #525252;">-->
+       <!--{{(group.Group.loadedNo != null)?group.Group.loadedNo : 3 }}</span></span>-->
+    <h5 style="font-size: 20px;margin-top: 1px;margin-bottom: -5px;" (click)="goToGroupProducts(group.Group.GroupShowID , group.Group.group_name)">
+    <span  style="color: #525252;margin-left: 5px;font-size: 14px;">{{'المزيد'}}</span></h5>
+    <ion-scroll direction="y" >
+      <!--infinite-scroll [lang]="MainService.lang" (onScrollMethod)="loadNext(group.Group.GroupShowID)"-->
+          <div class="infiniteScroll" >
+            <ion-card *ngFor="let product of group.Products">
+              <div class="detaildiv" (click)="viewProduct(product.ProductID)">
+                <div class="imagesdiv">
+                  <!--<img class="leftimg" [style.background]="product.ColorHexa">-->
+                 <img class="imgbrand" [src]="product.Logo" >
+                  <!--<div class="leftimg">{{(MainService.lang == 'ar') ? product.BarndName : product.BarndNameE}}</div>-->
+                  <!--تم تعديل هذا الجزء وحذف المميز وشرط مجموعه التصفيه بالاسم بدل الاى دى-->
+                  <!--<img *ngIf="product.HotOfferID > 0 && MainService.lang == 'en'" class="hot" src="assets/imgs/special.png">-->
+                  <!--<img *ngIf="product.HotOfferID > 0  && MainService.lang == 'ar'" class="hot" src="assets/imgs/special_ar.png">-->
+                  <img *ngIf="group.Group.group_nameen == 'Sale'&& MainService.lang == 'en'" class="hot" src="assets/imgs/hot.png">
+                  <img *ngIf="group.Group.group_name == 'تصفية' && MainService.lang == 'ar'" class="hot" src="assets/imgs/hot_ar.png">
+
+                </div>
+                <span style="
+    height: 115px;
+    width: 155px;">
+                <img class="prodimg"  [src]="product.Image" >
+                </span>
+                <ion-row class="starrow">
+                  <ion-icon *ngFor="let icon of icons(product.Rate); let i = index" style="color:orange" [name]="icon">
+                  </ion-icon>
+                </ion-row>
+                <h4>
+                  <marquee *ngIf="MainService.lang == 'en'" direction="left" scrollamount="2">{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</marquee>
+                  <marquee *ngIf="MainService.lang == 'ar'" direction="right" scrollamount="2">{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</marquee></h4>
+                <!--<h5 *ngIf="product.ProductPriceDesc != 0" > {{product.ProductPriceDesc}} {{ 'SAR' | translate}} </h5>-->
+                <!--<h5 style="color: red ; text-decoration: line-through;">{{product.ProductPrice}} {{ 'SAR' | translate}} </h5>-->
+                <h5 *ngIf="product.ProductPriceDesc != 0" > {{product.ProductPriceDesc}} {{ 'SAR' | translate}} </h5>
+                <h5 style="color: red ; text-decoration: line-through;" *ngIf="product.ProductPrice != 0">{{product.ProductPrice}} {{ 'SAR' | translate}} </h5>
+              </div>
+              <ion-row>
+                <ion-col col-3>
+                  <ion-icon
+                    *ngIf="product.CartID == null || product.CartState == 2" class="cardfoot" >
+                    <img [attr.id]="product.ProductID" #icon
+                         (click)="addToCart(product.ProductID , product.SellerID , icon,product)"
+                         style="width: 25px;" src="assets/imgs/cart_off.png" >
+                  </ion-icon>
+                  <ion-icon
+                    *ngIf="product.CartID != null && product.CartState == 1" class="cardfoot" >
+                    <img [attr.id]="product.ProductID" #icon
+                         (click)="addToCart(product.ProductID , product.SellerID , icon,product)"
+                         style="width: 25px;" src="assets/imgs/cart_on.png" >
+                  </ion-icon>
+                </ion-col>
+                <ion-col col-6 class="discount">
+                  <!--{{"Ar5ss By" | translate}} {{product.ar5ss}}-->
+                </ion-col>
+                <ion-col col-3>
+                  <ion-icon
+                    *ngIf="product.FavoritID == null"
+                    [attr.id]="product.ProductID"
+                    #icon
+                    class="cardfoot"
+                    ios="ios-heart"  md="md-heart"
+                    (click)="addToWishList(product.ProductID,icon , product)"></ion-icon>
+                  <ion-icon
+                    *ngIf="product.FavoritID != null"
+                    [attr.id]="product.ProductID"
+                    #icon
+                    class="cardfoot"
+                    style="color: crimson"
+                    ios="ios-heart"  md="md-heart" (click)="addToWishList(product.ProductID , icon , product)"></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+            <!--<ion-card-->
+              <!--style="background-color: white;"-->
+              <!--(click)="goToGroupProducts(group.Group.GroupShowID , group.Group.group_name)">-->
+              <!--<div class="moreCard" >-->
+                <!--&lt;!&ndash;<ion-icon  class="moreArrow" name="arrow-dropright"></ion-icon>&ndash;&gt;-->
+                <!--<p class="moreWord">المزيد</p>-->
+                <!--</div>-->
+            <!--</ion-card>-->
+          </div>
+        </ion-scroll>
+  </div>
+</div>
+
+<ion-row *ngIf="showSearch" >
+  <ion-row *ngIf="productSearchResult?.length == 0">
+    <img style="height: 200px;width: 100%;" src="assets/imgs/new_search.png">
+    <button ion-button block class="explore">{{ 'There Is No Items' | translate}}</button>
+  </ion-row>
+  <ion-col col-6 *ngFor="let product of productSearchResult">
+    <div class="contdiv" (click)="viewProduct(product.ProductID)">
+      <div style="text-align:center;height:162px"><img class="prodimg1" [src]="product.Image"></div>
+
+      <ion-row class="starrow">
+          <ion-icon *ngFor="let icon of icons(product.Rate); let i = index" style="color:orange" [name]="icon"></ion-icon>
+      </ion-row>
+      <h4>{{product.product_name}} , {{product.size}}</h4>
+      <h5>{{product.ProductPrice}} {{ 'SAR' | translate}}</h5>
+    </div>
+    <div class="iconsdiv">
+      <ion-icon class="cardfoot"  >
+        <img style="width: 25px;"
+             #icon2
+             (click)="addToCart(product.ProductID , product.SellerID ,icon2, product)"
+             src="assets/imgs/cart_off.png" >
+      </ion-icon>
+        <ion-icon
+          class="hearticon" #icon ios="ios-heart" md="md-heart" (click)="addToWishList(product.ProductID,icon, product)"></ion-icon>
+    </div>
+  </ion-col>
+</ion-row>
+
 </ion-content>

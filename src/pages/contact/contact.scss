@@ -1,0 +1,34 @@
+page-contact {
+  .content{
+    background:#f0f9f7;
+  }
+  .input{
+    border-bottom: 1px solid gray;
+    float: right;
+    width: 90%;
+    margin-bottom: 10px;
+    position: static;
+  }
+  .input-cover{
+    position: static;
+  }
+  form ion-icon{
+    width: 10%;
+    height: 55px;
+    padding-top: 12px;
+    color:crimson;
+    margin-top: 20px;
+  }
+  .signup{
+    height: 56px;
+    color: white;
+    background: crimson;
+    margin-top: 40px;
+  }
+  .text{
+    border-radius: 6px;
+    background-color: lightgray;
+    height: 130px;
+
+  }
+}

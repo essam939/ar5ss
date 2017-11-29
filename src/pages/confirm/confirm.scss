@@ -1,0 +1,57 @@
+page-confirm {
+  .toolbar-background{
+      background: white;
+      border-bottom: none;
+  }   
+    .header::after{
+      background-image: none;
+  }
+  .edit{
+        color: crimson;
+        border-color: crimson;
+        margin-left: -90px;
+    }
+  .waiting{
+        width: 60%;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        color: gray;
+        margin-top: 33px;
+  }
+.row{
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+     .code{
+      width:50px;
+      border-bottom: 1px solid gray;
+      float: left;
+      margin: 3px;
+
+  }
+}
+.input-cover{
+    position: static;
+}
+ .label{
+     text-align: center;
+     margin-top: 50px;
+ }
+ .proceed{
+        background: crimson;
+        width: 30%;
+        margin: 60px auto;
+ }
+ .resend{
+     color:crimson;
+ }
+ .number{
+        width: 53%;
+        text-align: right;
+        float: left;
+        margin-right: 10px;
+ }
+
+ 
+}

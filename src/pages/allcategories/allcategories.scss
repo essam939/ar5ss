@@ -1,0 +1,37 @@
+page-allcategories {
+   .content{
+        background: #f8f8f8;
+
+   }
+  .toolbar-title {
+    direction:rtl ;
+  }
+
+  img{
+    max-height: 70px;
+  }
+ .row{
+    text-align: center;
+    margin: 16px auto;
+    width: 95%;
+
+     .prodtype{
+         border: 1px solid lightgray;
+         border-radius: 10px;
+         background: white;
+         height: 166px;
+         padding: 10px;
+        span{
+           color:lightgrey;;
+           float: left;
+         }
+     }
+ }
+  .titlelogo{
+    font-family: hacen-samra-lt !important;
+    color: #333366 !important;
+    font-weight: 600;
+    font-size: 3rem;
+    padding-left: 17px;
+  }
+}

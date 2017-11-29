@@ -1,0 +1,66 @@
+page-login {
+  .toolbar-background{
+      background: white;
+      border-bottom: none;
+  }
+
+    .header::after{
+      background-image: none;
+  }
+.imagediv{
+      text-align: center;
+      //margin-top: 15px;
+        img{
+            height: 130px;
+            width: 130px;
+            border-radius: 50%;
+            background: lightgray;
+        }
+}
+form{
+    margin-top: 20px;
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+
+.input{
+    border-bottom: 1px solid gray;
+    float: right;
+    width: 90%;
+    margin-bottom: 10px;
+    position: static;
+}
+.input-cover{
+    position: static;
+}
+ion-icon{
+    width: 10%;
+    height: 55px;
+    padding-top: 12px;
+    color:crimson;
+}
+.login{
+    height: 50px;
+    color: white;
+    background: crimson;
+    margin-top: 20px;
+}
+.forget{
+    margin-top: 10px;
+    width: 100%;
+    color: black;
+}
+.signup{
+      margin-top: 10px;
+     width: 100%;
+    p{
+        color:black;
+        padding-right: 5px;
+    }
+    span{
+        color:crimson;
+    }
+}
+}
+
+}

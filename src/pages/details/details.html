@@ -1,0 +1,95 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title><ion-row class="titeldetails">    <span class="titlelogo">أرخص<img src="assets/imgs/navigate-arrows.png"></span>
+    </ion-row>
+      <span>{{ 'Product Details' | translate}}</span>
+      <div class="cartfavicon">
+        <ion-icon style="font-size:25px;color: darkgray" #fav name="heart"
+                  (click)="addToWishList(ProductID)">
+        </ion-icon>
+        <ion-icon style="font-size:25px;" (click)="addToCart(ProductID , productDetails?.SellerID)">
+          <img [attr.id]="ProductID" #cartImg style="width: 25px;" src="assets/imgs/cart_off.png" >
+        </ion-icon>
+      </div>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+<ion-content class="content">
+  <ion-slides pagre class="slider" style="direction:ltr">
+    <div *ngFor="let color of productDetails?.product_color">
+      <ion-slide style="height:300px;" *ngFor="let image of color.product_image">
+        <ion-item class= "align" (click)="goToSliderImage(color.ColorID)">
+
+          <img class="prodimages" [src]="image.Image" >
+
+          <!--<img *ngIf="productDetails?.HotOfferID != 0" class="hot" src="assets/imgs/oldhot.png">-->
+        </ion-item>
+      </ion-slide>
+    </div>
+  </ion-slides>
+  <div style="margin-top: -170px;">
+<h2 text-center style="padding-top: 20px;"> {{productDetails?.product_name}} , <small>{{(MainService.lang == 'ar') ? productDetails?.size : productDetails?.sizeen}}</small></h2>
+<p class="style">{{productDetails?.ProductPrice}} {{ 'SAR' | translate}}</p>
+<div style="text-align: center">
+ <ion-icon *ngFor="let icon of icons(productDetails?.Rate); let i = index;" class="iconcolor" [name]="icon"></ion-icon>
+<br>
+  <button class="btn1" ion-button
+          *ngFor="let color of productDetails?.product_color"
+          [style.background]="color.colors_of_product.ColorHexa"
+          (click)="goToSliderImage(color.ColorID)">
+  </button>
+  <br>
+  <div style="text-align: center">
+    {{productDetails?.BarCode}}
+  </div>
+  <ion-fab left style="margin-top: -70px;" >
+    <button ion-fab color="light"><ion-icon style="color: gray" name="md-share"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button (click)="sharefb()" ion-fab><ion-icon style="color: darkblue;" name="logo-facebook"></ion-icon></button>
+      <button (click)="sharetwitter()" ion-fab><ion-icon style="color: cornflowerblue" name="logo-twitter"></ion-icon></button>
+      <button (click)="sharetwhatsapp()" ion-fab><ion-icon style="color: green" name="logo-whatsapp"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</div>
+  <table>
+    <tr>
+      <th >{{ 'Property' | translate}}</th>
+      <th>{{ 'Value' | translate}}</th>
+    </tr>
+    <tr *ngFor="let prop of productProperty">
+      <td>{{prop.property_name}}</td>
+      <td>{{(MainService.lang == 'ar') ? prop.value : prop.valuee}}</td>
+    </tr>
+    <tr>
+      <td>
+        <button ion-button clear>{{"Explore" | translate}}</button>
+      </td>
+      <td>
+        <ion-icon name="arrow-forward" (click)="goToProductAttr()">
+        </ion-icon>
+      </td>
+    </tr>
+  </table>
+    <button class="btn3" (click)="otherOffer()" > {{ 'Other Offers found' | translate}}</button>
+ <hr>
+  <!--<div class="btna">
+    <h4>Shipping</h4>
+    <p style="color:red;">SAR 50</p>
+  </div>-->
+<ion-row>
+  <ion-col col-6>
+    <button class="addtocar" ion-button large (click)="addToCart(ProductID , productDetails?.SellerID)">{{ 'Add To Cart' | translate}}</button>
+  </ion-col>
+  <ion-col col-6 *ngIf="productDetails?.ShipingState != 2">
+    <h6 style="    text-align: end;
+    margin: 0 10px;">{{'Shipping' |translate }}</h6>
+    <p style="    text-align: end;
+    margin: 10px;
+    color: #dc143c;">
+      {{(productDetails?.ShipingState == 1 ) ? productDetails?.Shiping : "Free" | translate }}<p>
+  </ion-col>
+</ion-row>
+  </div>
+</ion-content>

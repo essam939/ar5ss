@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "982607177369",
+    "firebase_url": "https://ar5ss-8bb92.firebaseio.com",
+    "project_id": "ar5ss-8bb92",
+    "storage_bucket": "ar5ss-8bb92.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982607177369:android:745bcb37dcf796d5",
+        "android_client_info": {
+          "package_name": "com.ar5ss.ksa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982607177369-7hh2ld78qrc2vd06nme7nbqgu62dtcsv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7V0IHEQJ19tLJKu2ixfhV6MGnSwMEMDI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

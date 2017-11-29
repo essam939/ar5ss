@@ -1,0 +1,38 @@
+page-search {
+.imgdiv , .barcode{
+   background:#f1f5f5;
+   text-align:center;
+   padding: 20px;
+   ::placeholder{
+       color: #00c2ee;
+   }
+   img{
+      width: 70%;
+      margin-top: 30px;
+   }
+}    
+.searchbar{
+    margin-right: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-top: 10px;
+    border: 1px solid lightgray;
+    background: white;
+}
+
+.barcode{
+    background: white;
+    p{
+        color: gray;
+        font-size: 13px;
+    }
+    img{
+      width: 30%;
+   }
+}
+
+
+.input-cover{
+    position: static;
+}
+}

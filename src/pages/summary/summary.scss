@@ -1,0 +1,81 @@
+page-summary {
+
+.content{
+    background-color: #f0f9f7;
+}
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: red;
+}
+.img{
+  float: left;
+    width: 42px;
+    height: 27px;
+    margin-top: 10px;
+    margin-right: -4px;
+}
+.sel{
+   padding-left: 85px;
+    width: 50%;
+    margin-left: 47px;
+}
+.h5{
+        padding-top: 18px;
+            font-size: 1.8rem;
+}
+.sel{
+        padding-left: 1px;
+    margin-left: 10px;
+}
+.item-md {
+        background-color: #f0f9f7;
+}
+
+ .next{
+    display: inline-block;
+    font-size: 1.2em;
+    padding-top: 19px;
+ }
+ .par{
+         color: gray;
+    font-size: 16px;
+    padding-right: -30px;
+
+ }
+ .total{
+        text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+ }
+ .price{
+     text-align: center;
+     color: crimson;
+     font-size: 23px;
+    font-family: -webkit-body;
+ }
+ .button{
+     height: 56px;
+    margin-top: 75px;
+    background-color: crimson;
+    font-size: 30px;
+ }
+ .select-md .select-icon {
+    position: relative;
+    width: -9px;
+    height: 19px;
+    margin-left: -9px;
+}
+  .select-text {
+    overflow: initial;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 141px;
+    font-size: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

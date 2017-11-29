@@ -1,0 +1,91 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'Sign Up' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<div class="imagediv" (click)="galleryOrCamera()">
+  <img [src]="image" *ngIf="image != null">
+  <img  *ngIf="image == null">
+</div>
+
+<!--<form #f="ngForm">-->
+<!--<ion-icon ios="ios-person" md="md-person"></ion-icon>-->
+<!--<ion-input [(ngModel)]="customer.Name" name="Name" type="text" placeholder="{{ 'Full Name' | translate}}" required></ion-input>-->
+
+ <!--<ion-icon ios="ios-mail" md="md-mail"></ion-icon>-->
+ <!--<ion-input [(ngModel)]="customer.Email" name="Email" type="email" placeholder="{{ 'Email' | translate}}" required></ion-input>-->
+
+ <!--<ion-icon ios="ios-lock" md="md-lock"></ion-icon>-->
+ <!--<ion-input [(ngModel)]="customer.Password" name="Password" type="password" placeholder="{{ 'Password' | translate}}" required></ion-input>-->
+
+ <!--<ion-icon ios="ios-call" md="md-call"></ion-icon>-->
+
+ <!--<ion-input [(ngModel)]="customer.Mobile" name="Mobile" style="width:65%" type="number" placeholder="{{ 'Phone Number' | translate}}" required></ion-input>-->
+  <!--<ion-input style="width:20%;margin-right: 5%;" type="number" placeholder="+966" value="974" readonly></ion-input>-->
+<!--<button [disabled]="!f.valid"  ion-button block class="signup" (click)="register()">{{ 'Sign Up' | translate}}</button>-->
+
+<!--<button ion-button clear class="signin" (click)="gotosignin()"><p>{{ 'Already have an Account.' | translate}}</p> &nbsp;{{ 'Login' | translate}}</button>-->
+
+<!--</form>-->
+<ion-list>
+  <form #f="ngForm">
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon ios="ios-person" md="md-person"></ion-icon>
+
+      </ion-col>
+      <ion-col col-11>
+        <ion-input [(ngModel)]="customer.Name" name="Name" type="text" placeholder="{{ 'Full Name' | translate}}" required></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
+      </ion-col>
+      <ion-col col-11>
+        <ion-input [(ngModel)]="customer.Email" name="Email" type="email" placeholder="{{ 'Email' | translate}}" required></ion-input>      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
+      </ion-col>
+      <ion-col col-11>
+        <ion-input [(ngModel)]="customer.Password" name="Password" type="password" placeholder="{{ 'Password' | translate}}" required></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon ios="ios-call" md="md-call"></ion-icon>
+      </ion-col>
+      <ion-col col-11>
+        <ion-input [(ngModel)]="customer.Mobile" name="Mobile" style="width:65%" type="number" placeholder="{{ 'Phone Number' | translate}}" required></ion-input>
+        <ion-input style="width:20%;margin-right: 5%;" type="number" placeholder="966" value="966" readonly></ion-input>
+
+      </ion-col>
+    </ion-row>
+    <!--<ion-row>-->
+      <!--<ion-item>-->
+        <!--<ion-label>-->
+          <!--{{'City' | translate}}-->
+        <!--</ion-label>-->
+        <!--<ion-select [(ngModel)]="customer.CityID" name="CityID">-->
+          <!--<ion-option *ngFor="let city of cities" value="{{city.CityID}}">{{city.city_name}}</ion-option>-->
+        <!--</ion-select>-->
+      <!--</ion-item>-->
+    <!--</ion-row>-->
+    <button [disabled]="!f.valid "  ion-button block class="signup" (click)="register()">{{ 'Sign Up' | translate}}</button>
+    <button ion-button clear class="signin" (click)="gotosignin()"><p>{{ 'Already have an Account.' | translate}}</p> &nbsp;{{ 'Login' | translate}}</button>
+  </form>
+</ion-list>
+</ion-content>

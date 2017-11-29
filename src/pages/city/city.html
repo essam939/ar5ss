@@ -1,0 +1,32 @@
+<!--
+  Generated template for the CityPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{"city" | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-item>
+      <ion-label>
+        {{'City' | translate}}
+      </ion-label>
+      <ion-select [(ngModel)]="CityID">
+        <ion-option *ngFor="let city of cities" value="{{city.CityID}}">{{city.city_name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item >
+      <ion-row >
+          <button style="margin: auto;" ion-button round (click)="addCity()" >{{"Add City" | translate}}</button>
+      </ion-row>
+    </ion-item>
+  </ion-row>
+</ion-content>

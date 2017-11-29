@@ -1,4 +1,4 @@
-// http://ionicframework.com/docs/theming/
+// http://ionicframework.com/docs/v2/theming/
 
 
 // App Global Sass
@@ -8,9 +8,351 @@
 // Additionally, this file can be also used as an entry point
 // to import other Sass files to be included in the output CSS.
 //
-// Shared Sass variables, which can be used to adjust Ionic's
+// Shacrimson Sass variables, which can be used to adjust Ionic's
 // default Sass variables, belong in "theme/variables.scss".
 //
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+$tabs-md-tab-icon-color:crimson;
+
+.home{
+  background-image: url('assets/imgs/tab_bar_home_active.png');
+  background-repeat: no-repeat;
+  background-position:center;
+}
+
+.content{
+      height: 91%;
+      overflow: scroll;
+}
+
+//.toolbar-title{
+//color:crimson !important;
+//}
+.toolbar-ios ion-title{
+  padding: 5px ;
+}
+
+.button{
+    text-transform: none;
+}
+.toolbar-title-md{
+  text-align: center;
+  //font-size: 0.7em;
+}
+.toolbar-title{
+   span{
+     color: crimson;
+
+   }
+
+ .back-button-md{
+     margin-left: 0;
+     margin-right: 0;
+ }
+.tabs .active{
+    background:crimson;
+}
+.list-ios .item-block .item-inner{
+   border-bottom: none !important;
+}
+.item-ios.item-block .item-inner{
+  border-bottom: none !important;
+}
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+  color: crimson;
+}
+$tabs-md-tab-text-color-active:crimson;
+}
+.scroll-content{
+  margin-bottom: 0 !important;
+}
+.tabrow{
+  padding: 10px 0;
+    .col
+    {
+        img{
+        height: 25px;
+        width: 25px;
+          }
+    }
+
+    .cen{
+      text-align: center;
+    }
+}
+.tabs-md .tab-button[id=tab-t0-0] {
+  min-height: 5.6rem;
+  font-weight: normal;
+  color: rgba(60, 60, 60, 0.7);
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../assets/imgs/tab_bar_home.png');
+}
+ .tabs-md .tab-button[aria-selected=true][id=tab-t0-0]   {
+  color: crimson;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../assets/imgs/tab_bar_home_active.png');
+}
+.tabs-md .tab-button[id=tab-t0-1] {
+  min-height: 5.6rem;
+  font-weight: normal;
+  color: rgba(60, 60, 60, 0.7);
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../assets/imgs/tab_bar_category.png');
+}
+.tabs-md .tab-button[aria-selected=true][id=tab-t0-1]   {
+  color: crimson;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../assets/imgs/tab_bar_category_active.png');
+}
+.tabs-md .tab-button[id=tab-t0-2] {
+  min-height: 5.6rem;
+  font-weight: normal;
+  color: rgba(60, 60, 60, 0.7);
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../assets/imgs/tab_bar_heart.png');
+}
+.tabs-md .tab-button[aria-selected=true][id=tab-t0-2]   {
+  color: crimson;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../assets/imgs/tab_bar_heart_active.png');
+}
+.tabs-md .tab-button[id=tab-t0-3] {
+  min-height: 5.6rem;
+  font-weight: normal;
+  color: rgba(60, 60, 60, 0.7);
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../assets/imgs/tab_bar_profile.png');
+}
+.tabs-md .tab-button[aria-selected=true][id=tab-t0-3]   {
+  color: crimson;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../assets/imgs/tab_bar_profile_active.png');
+}
+.tabs-md .tab-button[id=tab-t0-4] {
+  min-height: 5.6rem;
+  font-weight: normal;
+  color: rgba(60, 60, 60, 0.7);
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../assets/imgs/tab_bar_settings.png');
+}
+.tabs-md .tab-button[aria-selected=true][id=tab-t0-4]   {
+  color: crimson;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../assets/imgs/tab_bar_settings_active.png');
+}
+
+
+
+
+
+.toast-md .toast-message {
+  color: white;
+  background-color: crimson;
+  margin: auto;
+  padding: 10px 2px;
+  text-align: center;
+  max-width: 70%;
+  min-width: 30%;
+}
+.toast-ios .toast-message {
+  color: white;
+  background-color: crimson;
+  margin: auto;
+  padding: 10px 2px;
+  text-align: center;
+  max-width: 70%;
+  min-width: 30%;
+}
+.toast-md .toast-wrapper {
+  background: transparent;
+}
+.toast-ios .toast-wrapper {
+  background: transparent;
+}
+.cartfavicon{
+  float: right;
+
+}
+[dir="rtl"] .cartfavicon{
+  float: left;
+}
+.prodh6{
+  float: right;
+}
+[dir="ltr"] .prodh6{
+  float: left;
+  padding-left:12px;
+}
+
+.products span {
+  float: left;
+}
+[dir="ltr"] .products span{
+  float: right;
+  padding-right:12px;
+}
+*{
+  touch-action: manipulation;
+}
+.logo{
+  margin-right: 72px;
+}
+[dir="ltr"] .logo{
+  margin-left: 72px;
+}
+
+
+@font-face {
+  font-family: 'DINNextLTArabic-Light';
+  src: url('../assets/fonts/ar/DINNextLTArabic-Light.ttf') ;
+  font-weight: normal;
+  font-style: normal;
+}
+[dir="rtl"] :not(ion-icon) {
+  font-family: 'DINNextLTArabic-Light' !important;
+}
+[dir="ltr"] :not(ion-icon) {
+  font-family: 'Montserrat-Bold' !important;
+}
+[dir="rtl"] .has-title-only .tab-button-text {
+  padding-top: 36px;
+  white-space: normal;
+  font-family: 'DINNextLTArabic-Light' !important;
+
+
+}
+[dir="ltr"] .has-title-only .tab-button-text {
+  padding-top: 46px;
+  white-space: normal;
+  font-family: 'Montserrat-Bold' !important;
+}
+.tab-button.has-title-only{
+  margin-top: -20px;
+}
+.toolbar-ios ion-title{
+  position: relative;
+}
+
+.toolbar-ios .segment-ios{
+  width: 20%;
+}
+.imgbrandd{
+  width: 60px;
+  float: right;
+}
+[dir="rtl"] .imgbrandd{
+  width: 60px;
+  float: left;
+}
+.headdiv{
+  float: right;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+[dir="rtl"] .headdiv{
+  float: left;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.tabbar.show-tabbar {
+
+  height: 55px;
+}
+
+@font-face {
+  font-family: 'hacen-samra-lt';
+  src: url('../assets/fonts/ar/hacen-samra-lt.ttf') ;
+  font-weight: normal;
+  font-style: normal;
+}
+.categorytitle{
+  margin-right: 16px;
+}
+[dir="rtl"] .categorytitle{
+  margin-left: 30px;
+}
+.titlepadding{
+  padding-right: 53px;
+}
+[dir="rtl"] .titlepadding{
+  padding-left: 113px;
+}
+.titeldetails{
+  margin-left: 69px;
+}
+[dir="rtl"] .titeldetails{
+  margin-right: 75px;
+
+}
+.cartNoInner {
+  display: inline;
+  font-size: 12px;
+  color: crimson;
+  position: fixed;
+  top: -10px;
+  right: 30px;
+  border: 1px solid black;
+  padding: 0 4px;
+  border-radius: 50%;
+}
+//.prodimg{
+//  max-height: 100%;
+//  padding-right: 5px;
+//  margin-right: auto;
+//  width: 128px;
+//  margin: auto;
+//  display: block;
+//  padding-right: 2px;
+//  margin-left: 3px;
+//
+//}
+.prodimg {
+  max-height: 100%;
+  margin-right: auto;
+  width: 128px;
+  margin: auto;
+  display: block;
+  margin-left: 15px;
+}
+[dir="rtl"] .prodimg {
+  max-height: 100%;
+  margin-right: auto;
+  width: 128px;
+  margin: auto;
+  display: block;
+  margin-left: auto;
+}
+alert{
+  background-color: white !important;
+  color: black !important;
+}
+

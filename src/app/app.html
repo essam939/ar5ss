@@ -1,1 +1,8 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-nav #nav [root]="tab1"> </ion-nav>
+<ion-tabs  #myTabs>
+  <ion-tab [root]="tab1" tabTitle="{{'Home' | translate}}" class="tab1" (ionSelect)="setRootTab1()"></ion-tab>
+  <ion-tab [root]="tab2" tabTitle="{{'Category' | translate}}" class="tab2" (ionSelect)="setRootTab2()"></ion-tab>
+  <ion-tab [root]="tab3" tabTitle="{{'Wish List' | translate}}" class="tab3" (ionSelect)="setRootTab3()"></ion-tab>
+  <ion-tab [root]="tab4" tabTitle="{{'Profile' | translate}}"class="tab4" (ionSelect)="setRootTab4()"></ion-tab>
+  <ion-tab [root]="tab5" tabTitle="{{'Setting' | translate}}"class="tab5" (ionSelect)="setRootTab5()"></ion-tab>
+</ion-tabs>

@@ -1,3 +1,319 @@
 page-home {
+.infiniteScroll{
+  overflow-y : auto;
+}
+  .back-button.show-back-button{
+      display: none;
+  }
+  .titlespace{
 
+    background-color: #f8f8f8;
+  }
+
+.toolbar-title span{
+        padding-right:0 !important;
+}
+  .content{
+    background:#f1f5f5;
+ }
+.back-button-md{
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 0;
+}
+.toolbar-title-md{
+    padding-left: 0;
+}
+.search{
+       padding-right: 5px;
+       padding-left: 5px;
+       float: left;
+}
+.toolbar-ios ion-title{
+    padding-left: 30px;
+    padding-right: 15px;
+}
+.back-button-text-ios{
+    display: none;
+}
+.imgdiv{
+        padding: 10px;
+        text-align: center;
+        img{
+            border-radius: 15px;
+            border-radius: 15px;
+            height: 160px;
+            width: 100%;
+        }
+}
+  .products{
+    height: 275px;
+    margin-bottom: 50px;
+    .prodh6{
+      text-align: start;
+      margin: 0;
+      padding-right: 15px;
+      font-weight: normal;
+      font-size: 14px;
+      width:50%;
+    }
+    // h5{
+    //   width:50%;
+    //   display:inline-flex;
+    //   text-align: end;
+    //   margin: 0;
+    // }
+    span{
+
+
+      color:gray;
+    }}
+
+  ion-scroll {
+    //position: relative;
+    //display: list-item;
+    //padding: 13%;
+            .scroll-content{
+                white-space: nowrap;
+                height: 290px;
+                overflow-x:scroll;
+                margin-top: 20px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            }
+
+ .card{
+    width: 157px;
+    display: inline-block;
+    height: 265px;
+    max-height: 265px;
+    border-radius: 15px;
+    margin: 0;
+    margin-left: 8px;
+    margin-top: 15px;
+    background: whitesmoke;
+ }
+
+ .detaildiv{
+    height: 85%;
+    background: white;
+    margin-top: -9px;
+    border-radius: 11px;
+
+    h5{
+        color:gray;
+        font-size: 11px;
+        padding: 0 5px;
+        display: inline;
+    }
+    .imagesdiv{
+        height: 42px;
+        max-height: 60px;
+        direction:ltr
+    }
+ }
+.imgbrand{
+  display: block;
+  width: 40%;
+  margin-top: 10px;
+}
+
+.leftimg{
+        width: 23px;
+        margin: 10px 0 0 5px;
+        height: 23px;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+   .starrow{
+    padding: 5px 5px 0 5px;
+     ion-icon{
+         color:gray;
+     }
+   }
+   h4{
+       padding:0 5px;
+
+   }
+
+
+.searchbar {
+    background: inherit;
+    padding:  0;
+}
+
+.headitem{
+    padding-right: 16px;
+    padding-left: 0;
+    width: 88%;
+    float: left;
+}
+
+// .headinput{
+//     background-image: url('../assets/imgs/search.png');
+//     background-repeat: no-repeat;
+//     margin: 10px 0 0;
+//     width: 90%;
+//     .text-input{
+//         width: 88% !important;
+//     }
+// }
+
+ .cardfoot{
+     font-size: 22px;
+     padding: 5px;
+     color: darkgrey;
+ }
+ .hot{
+    width: 24%;
+    float: right;
+    margin-top: -23px;
+ }
+  .slides{
+    height: 155px;
+  }
+  .toolbar-title span {
+    color: crimson;
+  }
+  .cartNo {
+    display: inline;
+    font-size: 12px;
+    color: crimson;
+    position: fixed;
+    top: -10px;
+    right: 29px;
+    border: 1px solid black;
+    padding: 0 4px;
+    border-radius: 50%;
+  }
+ [col-3]{
+     text-align: center;
+ }
+  .contdiv{
+
+    background: white;
+    height: 260px;
+    border-radius: 7px;
+    margin-top: 10px;
+
+    .prodimg{
+      height: 100px;
+      width: 65%;
+
+      margin-top: 5%;
+    }
+
+    .row{
+      padding-left: 10px;
+      padding-top: 10px;
+      ion-icon{
+        color:gray;
+      }
+    }
+
+    h4{
+            padding:0 10px;
+            margin: 5px 0;
+            font-size: 15px;
+    }
+      h5{
+        color:gray;
+        font-size: 11px;
+        padding: 0 10px;
+    }
+  }
+  .iconsdiv{
+    height: 41px;
+    background: #f7f5f5;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    text-align: left;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    .carticon , .hearticon{
+      font-size: 25px;
+      padding-left: 10px;
+      padding-top: 5px;
+      color: darkgrey;
+    }
+    .hearticon{
+      float: right;
+      padding-right: 10px;
+    }
+  }
+
+  .prodimg1{
+    width: 65%;
+    margin-top: 26%;
+  }
+  .logo{
+    height: 45px;
+    width: 55px;
+  }
+  .titlelogo{
+    font-family: hacen-samra-lt !important;
+    color: #333366 !important;
+    font-weight: 600;
+    font-size: 3rem;
+    margin-left: 33px;
+  }
+  .toolbar-title{
+    direction: rtl;
+  }
+  .discount{
+    text-align: center;
+    color: green;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .moreCard{
+    position: relative;
+    margin :auto;
+    margin-top: 33%;
+    border: 1px solid crimson;
+    border-radius: 50%;
+    height: 140px;
+    width: 140px;
+    background-image: -webkit-radial-gradient(45px 45px, circle cover, crimson, crimson);
+  }
+  .moreArrow{
+    font-size: 7.2em;
+    position: absolute;
+    right: 57px;
+    top: 20px;
+  }
+  .moreWord{
+    color: white;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-top: 47px;
+  }
+  .select-text {
+    overflow: hidden;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 16px;
+    font-size: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: absolute;
+    left: 10px;
+    color: crimson;
+    top: 5px;
+  }
+  .select-md{
+    padding: 0 !important;
+  }
+  .select-md .select-icon{
+    display: none;
+  }
+  .item-cover{
+    position: static !important;
+    display: none;
+  }
 }

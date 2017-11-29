@@ -1,0 +1,22 @@
+page-user-locations {
+  [dir="rtl"] ion-item-options {
+    left: 0;
+  }
+  [dir="ltr"] ion-item-options {
+    right: 0;
+  }
+  ion-item-options {
+    right: 0;
+    visibility: visible !important;
+  }
+  .list-md ion-item-options .button {
+    width : 75px;
+  }
+  ion-item {
+    height: 75px;
+  }
+  h2{
+    text-align: center;
+  }
+
+}

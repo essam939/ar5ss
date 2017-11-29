@@ -1,0 +1,33 @@
+<!--
+  Generated template for the AllcategoriesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title >
+      <p class="cartNoInner">{{ cart.length }}</p>
+      <!--<ion-icon *ngIf="wishList.length == 0" style="float: right;margin-top: 10px;color: lightgrey;" ios="ios-heart" md="md-heart" (click)="goToFav()"></ion-icon>-->
+      <!--<ion-icon *ngIf="wishList.length > 0" style="float: right;margin-top: 10px;color: crimson;" ios="ios-heart" md="md-heart" (click)="goToFav()"></ion-icon>-->
+      <ion-icon  style="float: right;margin-top: 10px;" (click)="goToCart()">
+        <img *ngIf="cart.length == 0" style="width: 20px;" src="assets/imgs/cart_off.png">
+        <img *ngIf="cart.length > 0" style="width: 20px;"  src="assets/imgs/cart_on.png">
+      </ion-icon>
+      <!--<span class="titlelogo"><img src="assets/imgs/logo.png"></span>-->
+      <span class="titlelogo">أرخص<img src="assets/imgs/navigate-arrows.png"></span>
+      <!--<span>{{ 'Category' | translate }}</span>--></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+  <ion-row>
+      <ion-col col-6 *ngFor="let cat of category" (click)="goToCategoryDetails(cat.CategoryID , cat.categroy_name)">
+          <div class="prodtype">
+            <img [src]="cat.CategoryImage">
+            <h4 style="color: crimson;">{{cat.categroy_name}}</h4>
+            <span>{{cat.ProductCont}}</span>
+          </div>
+      </ion-col>
+  </ion-row>
+</ion-content>

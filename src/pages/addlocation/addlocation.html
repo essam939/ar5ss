@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title > <span>{{ 'Determine Your Location' | translate}}</span> <ion-icon class="ic" ios="ios-search" md="ios-search-outline"></ion-icon></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+<div #map id="map" class="map"  >
+</div>
+  <form #f="ngForm">
+<ion-row>
+
+  <ion-col col-1>
+    <img class="user" src="assets/imgs/ic_user.png">
+  </ion-col>
+   <ion-col col-9>
+  <ion-item >
+    <!--<ion-label color="btncol" stacked>{{ 'Address' | translate}}</ion-label>-->
+    <ion-input style="position: absolute;" [(ngModel)]="place" name="place" type="text" color="dark" placeholder="{{ 'Address' | translate}}"></ion-input>
+  </ion-item>
+  </ion-col>
+  <ion-col col-2>
+    <button ion-button type="submit" (click)="confirm()">{{'Confirm' | translate}}</button>
+  </ion-col>
+</ion-row>
+  </form>
+</ion-content>

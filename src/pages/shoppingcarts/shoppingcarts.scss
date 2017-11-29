@@ -1,0 +1,96 @@
+page-shoppingcarts {
+.content{
+    background-color: #f0f9f7;
+    padding-top: 0 !important;
+}
+.search{
+       padding-right: 5px;
+       padding-left: 5px;
+       font-size: 30px;
+       color: gray;
+}
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: red;
+}
+h5{
+    font-size: 19px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    /* margin: 30px auto; */
+    margin-right: 50px;
+    margin-left: 28px;
+}
+  .img{
+
+
+    z-index: 0;
+    float: left;
+    position: static;
+    margin-top: 10px;
+
+    width: 96%;
+
+    max-height: 86%;
+    margin-left: 9px;
+    padding-right: 3px;
+  }
+.btn{
+       width: 48px;
+    height: 50px;
+    z-index: 1;
+    margin-left: -107px;
+    padding-top: 5px;
+    background-color: gray;
+}
+.shipping{
+    color: gray;
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+        padding-top: 2px;
+}
+.bt{
+    height: 56px;
+
+    font-size: 22px;
+    background-color: #f01666;
+    margin: 0 auto;
+}
+.item-md.item-block .item-inner{
+        border-bottom:none;
+}
+
+.item-cover {
+    width: 55%;
+}
+.colu{
+     padding-left: 73px;
+    margin-top: -86px;
+    width: 40%;
+    height: 40%;
+}
+.item {
+    padding-left: 0;
+    padding-right: -16px;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: normal;
+    width: 38%;
+    border: 1px solid lightgray;
+    color: #000;
+    background-color: aliceblue;
+}
+
+.sel{
+    color: red;
+        max-width: 100%;
+}
+.select-md .select-icon {
+    position: sticky;
+        height: 19px;
+}
+}

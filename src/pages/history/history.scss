@@ -1,0 +1,102 @@
+page-history {
+.content{
+    background:#f1f5f5;
+}
+.toolbar{
+        border-bottom: 1px solid lightgray;
+}
+.toolbar-background-md{
+    background: white;
+}
+
+.header::after{
+      background-image: none;
+  }
+
+
+
+.segment{
+    width: 70%;
+    margin: 10px auto 0;
+}
+.header{
+
+        border-radius: 10px;
+        background: white;
+}
+
+.segment-md .segment-button{
+    color: black;
+    opacity: 1;
+    text-transform: none;
+}
+.segment-md .segment-button.segment-activated {
+    border-color: crimson;
+    opacity: 1;
+    font-weight: normal;
+    color: black;
+}
+
+[col-4]{
+    color: white;
+    div{
+        border-radius: 10px;
+        background: crimson;
+        height: 95px;
+        text-align: center;
+        padding-top: 15px;
+
+    }
+}
+.card{
+    height: 160px;
+    padding: 5px;
+    border-radius: 15px;
+    h1{
+    color: white !important;
+    }
+
+    h2{
+        margin-top: 20px;
+        margin-bottom: 5px;
+        font-size: 25px;
+    }
+    h4{
+        color: gray;
+        font-size: 16px;
+    }
+    h6{
+        float: right;
+        color:crimson;
+        text-align: right;
+        padding: 10px;
+
+
+    }
+    p{
+        width: 30%;
+        float: left;
+        padding: 8px;
+        color: gray;
+
+    }
+
+}
+
+.rowcont{
+        border-bottom: 1px solid lightgray;
+}
+  .explore{
+    width: 45%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    background: crimson;
+  }
+
+  .empty{
+    text-align: center;
+    width: 80%;
+    margin: 10% auto;
+  }
+}

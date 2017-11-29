@@ -1,0 +1,48 @@
+page-editprofile {
+ .content{
+   background:#f0f9f7;
+}   
+ .header::after{
+      background-image: none;
+  }
+.imagediv{
+      text-align: center;
+      margin-top: 15px;
+        img{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background: lightgray;
+        }
+}
+form{
+    margin-top: 40px;
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+
+.input{
+    border-bottom: 1px solid gray;
+    float: right;
+    width: 90%;
+    margin-bottom: 10px;
+    position: static;
+}
+.input-cover{
+    position: static;
+}
+ion-icon{
+    width: 10%;
+    height: 55px;
+    padding-top: 12px;
+    color:crimson;
+}
+.signup{
+    height: 50px;
+    color: white;
+    background: crimson;
+    margin-top: 20px;
+}
+
+}
+}

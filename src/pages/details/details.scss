@@ -1,0 +1,110 @@
+page-details {
+  .content{
+        background-color: #f0f9f7;
+  }
+
+.slider{
+    height: 100%;
+    margin: 15px auto;
+    background-color: #f0f9f7;
+
+}
+.style{
+    font-size: 20px;
+    color: gray;
+    text-align: center;
+    margin: 0 0 15px;
+}
+.iconcolor{
+    color: #FACC2E;
+    text-align: center;
+    font-size:160%;
+}
+.btna{
+  width: 50%;
+  float: left;
+
+}
+  .toolbar-content{
+    text-align: center;
+  }
+
+ion-title{
+    width: 100%;
+    display: inline-block;
+}
+.align{
+    text-align: center;
+     background-color: white;
+
+   }
+.hot{
+    position: fixed;
+    right: -3px;
+    top: 8%;
+    width: 60px;
+    height: 60px;
+    z-index: 2;
+    border: 3px;
+}
+.addtocar{
+    height: 50px;
+    float: right;
+    margin:0 10px;
+    background-color: crimson;
+}
+.btn1{
+    width: 30px;
+    height: 30px;
+}
+.btn2{
+    width: 50px;
+    height: 50px;
+}
+.btn3{
+    width: 100%;
+    height: 50px;
+    color: gray;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: transparent;
+}
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  .swiper-container {
+    padding: 0;
+    width: 100%;
+    height: 70%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+  }
+  .fab-close-icon{
+    color: gray;
+  }
+  .titlelogo{
+    font-family: hacen-samra-lt !important;
+    color: #333366 !important;
+    font-weight: 600;
+    font-size: 3rem;
+    direction: rtl;
+  }
+.prodimages{
+max-height: 300px;
+}
+}
