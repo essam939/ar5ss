@@ -54,14 +54,14 @@
         <img src="assets/imgs/sort.png" height="25px">
         <h6>{{ 'To AR' | translate}}</h6>
       </ion-label>
-      <ion-toggle checked="true" (ionChange)="changeLang('ar')"></ion-toggle>
+      <ion-toggle [(ngModel)]="toggleStatus"  checked="true" (ionChange)="Change_Toggle('ar')"></ion-toggle>
     </ion-item>
     <ion-item *ngIf="MainService.lang == 'ar'">
       <ion-label>
         <img src="assets/imgs/sort.png" height="25px">
         <h6>{{ 'To EN' | translate}}</h6>
       </ion-label>
-      <ion-toggle checked="false" (ionChange)="changeLang('en')"></ion-toggle>
+      <ion-toggle [(ngModel)]="toggleStatus"  checked="false" (ionChange)="Change_Toggle('en')"></ion-toggle>
     </ion-item>
   </ion-list>
 </ion-content>

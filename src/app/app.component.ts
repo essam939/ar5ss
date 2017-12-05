@@ -1,3 +1,4 @@
+import { MainService } from './../providers/main-service';
 import {Component, ViewChild, NgZone} from '@angular/core';
 import {Platform, Tabs, Tab, NavController, AlertController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -16,6 +17,8 @@ import { HomePage } from '../pages/home/home';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { ResourceLoader } from '@angular/compiler';
+import { NativeStorage } from '@ionic-native/native-storage';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -30,12 +33,14 @@ export class MyApp {
   public homePage = HomePage;
   @ViewChild('myTabs') tabRef: Tabs;
   @ViewChild('nav') nav:NavController;
+  public  MainService = MainService;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               public customerService : CustomerService ,  private push :Push ,
               public translate : TranslateService , public network: Network ,
               public commonService : CommonService , public cache : CacheService ,
               public dbService : DbService , public zone: NgZone , public geolocation : Geolocation ,
-              public productService : ProductService , public alertCtrl : AlertController,private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic) {
+              public productService : ProductService , public alertCtrl : AlertController,
+              private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic,public nativeStorage:NativeStorage) {
     platform.ready().then(() => {
       //caching policy
       this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(
@@ -74,6 +79,26 @@ export class MyApp {
         // });
     
       // rtl init
+this.nativeStorage.getItem('lang').then((res)=>{
+if(res=='ar'){
+  this.translate.setDefaultLang('ar');
+  platform.setDir('rtl', true);
+  console.log('arabic');
+}
+else if(res == 'en'){
+  this.translate.setDefaultLang('en');
+  platform.setDir('ltr', true);
+  console.log('English');
+}
+else if(!res){
+  this.translate.setDefaultLang('ar');
+  platform.setDir('rtl', true);
+  console.log('defult');
+}
+else{
+  console.log('translate err');
+}
+});
       this.translate.setDefaultLang('ar');
       platform.setDir('rtl', true);
       // handling offline

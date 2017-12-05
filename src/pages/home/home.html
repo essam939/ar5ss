@@ -79,7 +79,7 @@
                                                 <!--color: #525252;">-->
        <!--{{(group.Group.loadedNo != null)?group.Group.loadedNo : 3 }}</span></span>-->
     <h5 style="font-size: 20px;margin-top: 1px;margin-bottom: -5px;" (click)="goToGroupProducts(group.Group.GroupShowID , group.Group.group_name)">
-    <span  style="color: #525252;margin-left: 5px;font-size: 14px;">{{'المزيد'}}</span></h5>
+    <span  style="color: #525252;margin-left: 5px;font-size: 14px;">{{'more'|translate}}</span></h5>
     <ion-scroll direction="y" >
       <!--infinite-scroll [lang]="MainService.lang" (onScrollMethod)="loadNext(group.Group.GroupShowID)"-->
           <div class="infiniteScroll" >

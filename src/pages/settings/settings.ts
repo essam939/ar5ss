@@ -4,7 +4,7 @@ import {CustomerService} from "../../providers/customer-service";
 import {MainService} from "../../providers/main-service";
 import {TranslateService} from "@ngx-translate/core";
 import {CommonService} from "../../providers/common-service";
-
+import { NativeStorage } from '@ionic-native/native-storage';
 
 
 @IonicPage()
@@ -16,10 +16,10 @@ export class Settings {
   public MainService : MainService = MainService ;
   public wishList : any[] = [] ;
   public cart : any[] = [] ;
-
+  public toggleStatus:any;
   constructor(public navCtrl: NavController, public navParams: NavParams ,
               public customerService : CustomerService , public platform : Platform ,
-              private translate: TranslateService , public commonService :  CommonService) {
+              private translate: TranslateService , public commonService :  CommonService,public nativeStorage:NativeStorage) {
   }
 
   ionViewDidLoad() {
@@ -46,14 +46,23 @@ export class Settings {
  {
    this.navCtrl.push("AboutPage");
  }
-  changeLang(type){
-    this.translate.setDefaultLang(type);
-    MainService.lang = type;
-    if(type == 'en')
-      this.platform.setDir('ltr', true);
-    else
-      this.platform.setDir('rtl', true);
+ Change_Toggle(type) {
+
+  this.translate.setDefaultLang(type);
+  this.nativeStorage.setItem('lang',type);
+  MainService.lang = type;
+  if(type == 'ar'){
+    this.platform.setDir('rtl', true);
+  console.log(type);
+  console.log("arabic");
   }
+  else
+  {
+    this.platform.setDir('ltr', true);
+    console.log(type);
+    console.log("English");
+  }
+}
   goToFav()
   {
     this.navCtrl.push("WishlistPage");
