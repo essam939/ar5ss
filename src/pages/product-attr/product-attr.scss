@@ -14,4 +14,12 @@ page-product-attr {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+  .content{
+    background-color: #f0f9f7;
+  }
+  .toolbar-title {
+    text-align: center;
+    color: red;
+    width: 82%;
+}
 }

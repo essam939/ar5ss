@@ -7,14 +7,14 @@ import {TranslateModule} from "@ngx-translate/core";
 import {DetailsPage} from "./details";
 @NgModule({
   declarations : [
-    DetailsPage
+    DetailsPage,
   ],
   imports : [
     IonicPageModule.forChild(DetailsPage),
     TranslateModule.forChild()
   ],
   exports : [
-    DetailsPage
+    DetailsPage,
   ]
 })
 export class DetailsPageModule {}

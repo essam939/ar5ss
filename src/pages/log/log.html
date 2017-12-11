@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'log'|translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <div *ngFor="let productitem of product">
+  <ion-row >
+    <ion-col col-5>
+<img class="img" [src]="productitem.Image">
+    </ion-col>
+    <ion-col col-7>
+                  <h2 style="font-family: inherit; color: #4A4D4D;">{{productitem.product_name}} , <small>  {{productitem.size}} </small></h2>
+<p style="    color: crimson;
+font-size: 1.6rem;
+margin: 0;
+font-weight: 600;">{{productitem.ProductPrice}} &nbsp; {{'SAR'|translate}} </p>
+<p style="    width: 30%;
+border: 1px solid gray;
+padding: 5px;
+margin-top: 10px;">{{productitem.QTY}} &nbsp; {{'QTY'|translate}}</p>
+    </ion-col>
+  </ion-row>
+</div>
+<button style="font-size: 1.8rem;" ion-button block (click)="GoHome()">{{'Home'|translate}}</button>
+</ion-list>
+</ion-content>

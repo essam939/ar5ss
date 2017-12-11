@@ -1,0 +1,80 @@
+page-log {
+    .content{
+        background-color: #f0f9f7;
+      }
+      .search{
+        padding-right: 5px;
+        padding-left: 5px;
+        float: right;
+        color: gray;
+      }
+      .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: red;
+      }
+      h5{
+        font-size: 20px;
+        text-align: center;
+      }
+      .img{
+        max-width: 100%;
+        max-height: 100%;
+        z-index: 0;
+        margin-top: 13px;
+        float: left;
+        position: static;
+      }
+      .btn{
+        width: 48px;
+        height: 50px;
+        z-index: 1;
+        margin-left: -74px;
+        padding-top: 5px;
+        background-color: gray;
+      }
+      .shipping{
+        float: right;
+        margin-top: 18px;
+        color: gray;
+      }
+      .bt{
+        height: 56px;
+        font-size: 22px;
+        background-color: red;
+      }
+      .item-md.item-block .item-inner{
+        border-bottom:none;
+      }
+    
+      .item-cover {
+        width: 55%;
+      }
+      .colu{
+        padding-left: 73px;
+        margin-top: -86px;
+        width: 40%;
+        height: 40%;
+      }
+      .item-md {
+        padding-left: 0;
+        padding-right: -16px;
+        position: relative;
+        font-size: 1.6rem;
+        font-weight: normal;
+        width: 38%;
+        border: 1px solid lightgray;
+        color: #000;
+        background-color: aliceblue;
+      }
+    
+      .sel{
+        color: red;
+        max-width: 100%;
+      }
+      .select-md .select-icon {
+        position: sticky;
+        height: 19px;
+      }
+}

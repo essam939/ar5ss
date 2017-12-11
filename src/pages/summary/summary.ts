@@ -27,7 +27,9 @@ export class SummaryPage {
               public payPal: PayPal , public customerService : CustomerService , public modalCtrl :ModalController ,
               public nativeGeocoder: NativeGeocoder) {
       this.cartTotal = this.navParams.data.cartTotal ;
+      console.log(this.cartTotal);
       this.cartShipping = this.navParams.data.cartShipping ;
+      console.log(this.cartShipping);
   }
 
   ionViewDidLoad() {
@@ -203,7 +205,7 @@ export class SummaryPage {
           if(res.state == '202')
           {
             this.commonService.successToast();
-            this.navCtrl.push("HomePage");
+            this.navCtrl.push("LogPage");
             
           }
           else
@@ -212,5 +214,7 @@ export class SummaryPage {
     }).catch((error: any) => console.log(error));
     this.commonService.dismissLoading();
   }
-
+go(){
+  this.navCtrl.push("LogPage");
+}
 }

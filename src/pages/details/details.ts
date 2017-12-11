@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import {Component, ViewChildren} from '@angular/core';
 import {NavController, NavParams, ModalController, IonicPage} from 'ionic-angular';
 import {CustomerService} from "../../providers/customer-service";
@@ -5,6 +6,7 @@ import {ProductService} from "../../providers/product-service";
 import {CommonService} from "../../providers/common-service";
 import {MainService} from "../../providers/main-service";
 import {SocialSharing} from "@ionic-native/social-sharing";
+import { ShoppingcartsPage } from '../shoppingcarts/shoppingcarts';
 
 
 @IonicPage()
@@ -96,20 +98,27 @@ export class DetailsPage {
   }
   addToCart(ProductID : number , SellerID : number)
   {
-    if(this.commonService.splitFromLastBackSlash(this.cartImg._results[0].nativeElement.src) == 'cart_on.png')
+    if(this.commonService.splitFromLastBackSlash(this.cartImg._results[0].nativeElement.src) == 'cart_on.png'){
       this.removeCart(ProductID , this.cartImg._results[0].nativeElement);
-    else
+    
+    }
+    else{
       this.addCart(ProductID , SellerID ,this.cartImg._results[0].nativeElement);
+       
   }
+}
   addCart(ProductID : number , SellerID : number ,element : any ) {
     element.src = 'assets/imgs/cart_on.png';
     this.customerService.addToCart(ProductID , SellerID).subscribe((res)=>{
-      if(res == true)
+      if(res == true){
         this.commonService.successToast();
-      else if(res.error)
+        this.navCtrl.push("ShoppingcartsPage");
+        
+       } else if(res.error)
         this.commonService.translateAndToast(res.error);
       else
         this.commonService.errorToast();
+     
     });
   }
   removeCart(ProductID : number , element : any)

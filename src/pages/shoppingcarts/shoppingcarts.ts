@@ -2,6 +2,7 @@ import {Component, ViewChildren} from '@angular/core';
 import {NavController, NavParams, IonicPage} from 'ionic-angular';
 import {CustomerService} from "../../providers/customer-service";
 import {CommonService} from "../../providers/common-service";
+import { NativeStorage } from '@ionic-native/native-storage';
 @IonicPage()
 @Component({
   selector: 'page-shoppingcarts',
@@ -13,7 +14,7 @@ export class ShoppingcartsPage {
   public cartShipping :  number = 0;
   @ViewChildren('prices') itemsPriceRef;
   constructor(public navCtrl: NavController, public navParams: NavParams ,
-              public customerService: CustomerService , public commonService : CommonService ) {
+              public customerService: CustomerService , public commonService : CommonService,private nativeStorage: NativeStorage ) {
 
   }
   ionViewWillEnter()
@@ -22,6 +23,7 @@ export class ShoppingcartsPage {
       console.log(res);
       this.cartDetails = res ;
       this.cartTotal = this.initCartTotal();
+      this.nativeStorage.setItem('cartlog',this.cartDetails);
     });
   }
   ionViewDidLoad() {

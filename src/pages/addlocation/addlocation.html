@@ -17,11 +17,11 @@
    <ion-col col-9>
   <ion-item >
     <!--<ion-label color="btncol" stacked>{{ 'Address' | translate}}</ion-label>-->
-    <ion-input style="position: absolute;" [(ngModel)]="place" name="place" type="text" color="dark" placeholder="{{ 'Address' | translate}}"></ion-input>
+    <ion-input style="position: absolute;" [(ngModel)]="place" name="place" type="text" color="dark" placeholder="{{ 'Address' | translate}}" required></ion-input>
   </ion-item>
   </ion-col>
   <ion-col col-2>
-    <button ion-button type="submit" (click)="confirm()">{{'Confirm' | translate}}</button>
+    <button ion-button type="submit" [disabled]="!f.valid"  (click)="confirm()">{{'Confirm' | translate}}</button>
   </ion-col>
 </ion-row>
   </form>
