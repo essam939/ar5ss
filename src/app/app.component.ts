@@ -43,12 +43,28 @@ export class MyApp {
               private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic,public nativeStorage:NativeStorage) {
     platform.ready().then(() => {
       //caching policy
-      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(
-        success => console.log('Permission granted'),
-        err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION)
+      // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+
+      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(res=>{
+        console.log('network :: ',res)
+        if(res['hasPermission']){
+          this.checkLocation();}else {
+
+
+          this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION, this.androidPermissions.PERMISSION.GET_ACCOUNTS]).then(Pres=>{
+            console.log('permession :: ',Pres)
+
+            this.checkLocation();
+          });
+
+
+        }
+
+        }
+        // success => console.log('Permission granted'),
+        // err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION)
       );
-    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
-    this.checkLocation();
+    // this.checkLocation();
       cache.setDefaultTTL(60 * 60 * 12)  ;
       cache.setOfflineInvalidate(false);
       // this.cache.enableCache(false);
@@ -64,7 +80,7 @@ export class MyApp {
       // chseck for any customer
       this.customerService.customerStorageGet();
 
-      
+
         // .then(()=>{
         //   if(this.customerService.customer == null ){
         //     // this.initPage = "CityPage";
@@ -77,7 +93,7 @@ export class MyApp {
           //   this.tabRef.select(0,{});
           // }
         // });
-    
+
       // rtl init
 this.nativeStorage.getItem('lang').then((res)=>{
 if(res=='ar'){
@@ -107,7 +123,7 @@ else{
       this.fireWhenOnline();
       //
         // get location
-     
+
 
     });
   }
@@ -118,7 +134,8 @@ checkLocation()
 this.customerService.customerSetLocation();
 this.geolocation.getCurrentPosition().then((resp) => {
   // resp.coords.latitude,resp.coords.longitude
-  //24.790529, 46.811053
+  //24.790529, 46.811053 ...24.691714, 46.759152
+  console.log('loc response',resp)
   this.productService.getCityName(resp.coords.latitude,resp.coords.longitude).subscribe((res : any)=>{
     console.log(res);
     console.log(res.results[0].address_components[3].long_name);
@@ -126,8 +143,8 @@ this.geolocation.getCurrentPosition().then((resp) => {
     if(res.results.length > 0){
       this.customerService.cityName = ccName.replace(' Province','');
       console.log(this.customerService.cityName);
-      
-      this.showAlert(this.customerService.cityName); 
+
+      this.showAlert(this.customerService.cityName);
     }
   });
 }).catch((error) => {

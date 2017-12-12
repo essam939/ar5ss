@@ -31,12 +31,12 @@ export class HomePage {
     public translate : TranslateService , private sanitizer: DomSanitizer , public customerService : CustomerService ,
               public commonService : CommonService , private barcodeScanner: BarcodeScanner ,
               private geolocation : Geolocation,public  network:Network, public dbService : DbService) {
-               
-          this.getGroupShow(); 
-         
+
+          this.getGroupShow();
+
     //setTimeout(()=> this.initObjects() , 6000);
        this.fireWhenOffline();
-this.checkLocation();
+//this.checkLocation();
   }
 
 
@@ -53,8 +53,8 @@ this.checkLocation();
       if(res.results.length > 0){
         this.customerService.cityName = ccName.replace(' Province','');
         console.log(this.customerService.cityName);
-        
-       // this.showAlert(this.customerService.cityName); 
+
+       // this.showAlert(this.customerService.cityName);
       }
     });
   }).catch((error) => {
@@ -62,7 +62,7 @@ this.checkLocation();
   });
   }
   /////////////////////////////////////////
-  
+
     showAlert(cname) {
       this.translate.get('if you want another town go to the top choose it').subscribe(
         value => {
@@ -76,7 +76,7 @@ this.checkLocation();
                 handler: () => {
                   console.log(this.customerService.cityName);
                   this.productService.groupShow().subscribe((res)=>{
-  
+
                   });
                 }
               }
@@ -103,9 +103,9 @@ this.checkLocation();
       console.log('res res res res',res);
       this.cities = res ;
     });
-    
+
     console.log("ion View Did Load");
-   
+
 
    // this.initObjects();
   }
