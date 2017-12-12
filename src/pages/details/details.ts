@@ -29,7 +29,7 @@ export class DetailsPage {
               public sharing: SocialSharing) {
     this.ProductID = this.navParams.data.ProductID ;
   }
-
+ 
   ionViewWillEnter()
   {
     this.productService.productDetails(this.ProductID).subscribe((res)=>{

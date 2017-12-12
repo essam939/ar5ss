@@ -5,6 +5,7 @@ import {MainService} from "../../providers/main-service";
 import {TranslateService} from "@ngx-translate/core";
 import {CommonService} from "../../providers/common-service";
 import { NativeStorage } from '@ionic-native/native-storage';
+import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -55,12 +56,14 @@ export class Settings {
     this.platform.setDir('rtl', true);
   console.log(type);
   console.log("arabic");
+  this.navCtrl.setRoot("HomePage");
   }
   else
   {
     this.platform.setDir('ltr', true);
     console.log(type);
     console.log("English");
+    this.navCtrl.setRoot("HomePage");
   }
 }
   goToFav()

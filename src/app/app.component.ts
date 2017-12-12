@@ -44,7 +44,7 @@ export class MyApp {
     platform.ready().then(() => {
       //caching policy
       // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
-
+      // this.checkLocation();
       this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(res=>{
         console.log('network :: ',res)
         if(res['hasPermission']){
@@ -61,6 +61,7 @@ export class MyApp {
         }
 
         }
+
         // success => console.log('Permission granted'),
         // err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION)
       );

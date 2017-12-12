@@ -44,7 +44,7 @@ export class ShoppingcartsPage {
     for(let i = 0 ; i < this.cartDetails.length ; i++)
     {
       sum += this.cartDetails[i].ProductPrice * this.cartDetails[i].QTY;
-      shipping += this.cartDetails[i].Shiping ;
+      shipping += this.cartDetails[i].Real_Shiping ;
     }
     this.cartShipping = shipping ;
     return sum;
