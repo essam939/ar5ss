@@ -63,7 +63,7 @@ export class Settings {
     this.platform.setDir('ltr', true);
     console.log(type);
     console.log("English");
-    this.navCtrl.setRoot("HomePage");
+     this.navCtrl.setRoot("HomePage");
   }
 }
   goToFav()

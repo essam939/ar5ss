@@ -41,7 +41,7 @@
     "@ngx-translate/http-loader": "^0.1.0",
     "card.io.cordova.mobilesdk": "^2.1.0",
     "com.paypal.cordova.mobilesdk": "^3.5.0",
-    "cordova-android": "~6.3.0",
+    "cordova-android": "6.3.0",
     "cordova-browser": "~5.0.1",
     "cordova-plugin-advanced-http": "^1.8.1",
     "cordova-plugin-android-permissions": "^1.0.0",

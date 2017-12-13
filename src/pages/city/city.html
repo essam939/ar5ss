@@ -20,7 +20,7 @@
         {{'City' | translate}}
       </ion-label>
       <ion-select [(ngModel)]="CityID">
-        <ion-option *ngFor="let city of cities" value="{{city.CityID}}">{{city.city_name}}</ion-option>
+        <ion-option *ngFor="let city of cities" value="{{city.CityID}}"> {{(MainService.lang == 'ar') ? city.city_name : city.city_name}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item >
