@@ -30,6 +30,7 @@ export class MyApp {
   tab4 = "Profile";
   tab5 = "Settings";
   public cnameng : string;
+  public message:boolean=false;
   public homePage = HomePage;
   @ViewChild('myTabs') tabRef: Tabs;
   @ViewChild('nav') nav:NavController;
@@ -48,13 +49,14 @@ export class MyApp {
       this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(res=>{
         console.log('network :: ',res)
         if(res['hasPermission']){
-          this.checkLocation();}else {
-
-
+          this.checkLocation();
+      
+        }else {
           this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION, this.androidPermissions.PERMISSION.GET_ACCOUNTS]).then(Pres=>{
             console.log('permession :: ',Pres)
 
             this.checkLocation();
+            this.message=true;
           });
 
 
@@ -144,9 +146,14 @@ this.geolocation.getCurrentPosition().then((resp) => {
     if(res.results.length > 0){
       this.customerService.cityName = ccName.replace(' Province','');
       console.log(this.customerService.cityName);
-
+if(this.message==true){
       this.showAlert(this.customerService.cityName);
+      console.log("messageAlert = true");
     }
+    else{
+      console.log("messageAlert = false");
+    }
+  }
   });
 }).catch((error) => {
   console.log(error);

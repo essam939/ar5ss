@@ -31,11 +31,14 @@ export class Contact {
     ).subscribe((res)=>{
       if(res.stuts == "true")
       {
+        console.log(res);
         this.commonService.successToast();
         this.navCtrl.pop();
       }
-      else
+      else{
+        console.log(res);
         this.commonService.errorToast();
+      }
     });
   }
 }

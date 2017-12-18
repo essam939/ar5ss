@@ -21,7 +21,7 @@
   "Edit Profile" : "تعديل الحساب" ,
   "Your Profile" : "حسابك" ,
   "Change Avatar" : "تغيير الصورة" ,
-  "Add To Cart" :  "الى عربة التسوق" ,
+  "Buy Now" :"الشراء الان" ,
   "Add To Favorite" : "أضف الى المفضلة" ,
   "Product Details" : "تفاصيل المنتج" ,
   "SAR" : "ريال" ,
@@ -93,5 +93,6 @@
   "Add City" :"أضف المدينة",
   "if you want another town go to the top choose it":"اذا كنت تريد مدينه اخرى اختارها من اعلى الصفحه",
   "more":"المزيد",
-  "log":"سجل المشتريات"
+  "log":"سجل المشتريات",
+  "We received your order and will communicate with you soon":"تم استلام طلبك وسيتم التواصل معك قريبا"
 }

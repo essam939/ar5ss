@@ -1,8 +1,8 @@
+import { CommonService } from './../../providers/common-service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {CustomerService} from "../../providers/customer-service";
 import { NativeStorage } from '@ionic-native/native-storage';
-
 /**
  * Generated class for the LogPage page.
  *
@@ -16,7 +16,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 })
 export class LogPage {
  product:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public customerService:CustomerService,private nativeStorage: NativeStorage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public customerService:CustomerService,private nativeStorage: NativeStorage,public commonService:CommonService) {
   }
 
   ionViewDidLoad() {
@@ -31,6 +31,7 @@ export class LogPage {
     this.nativeStorage.getItem('cartlog').then((res)=>{
       this.product=res;
     });
+this.commonService.translateAndToast('We received your order and will communicate with you soon');
   }
   GoHome(){
     this.navCtrl.push("HomePage");
