@@ -10,6 +10,7 @@ import {Geolocation} from "@ionic-native/geolocation";
 import {Network} from "@ionic-native/network";
 import {DbService} from "../../providers/db-service";
 import { TranslateService } from '@ngx-translate/core';
+import { Keyboard } from '@ionic-native/keyboard';
 
 @IonicPage()
 @Component({
@@ -30,7 +31,7 @@ export class HomePage {
   constructor(public alertCtrl: AlertController,public navCtrl: NavController , public productService : ProductService ,
     public translate : TranslateService , private sanitizer: DomSanitizer , public customerService : CustomerService ,
               public commonService : CommonService , private barcodeScanner: BarcodeScanner ,
-              private geolocation : Geolocation,public  network:Network, public dbService : DbService) {
+              private geolocation : Geolocation,public  network:Network, public dbService : DbService,private keyboard: Keyboard) {
 
           this.getGroupShow();
 

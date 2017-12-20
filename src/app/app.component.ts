@@ -18,6 +18,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { ResourceLoader } from '@angular/compiler';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { Keyboard } from '@ionic-native/keyboard';
 
 @Component({
   templateUrl: 'app.html'
@@ -41,7 +42,7 @@ export class MyApp {
               public commonService : CommonService , public cache : CacheService ,
               public dbService : DbService , public zone: NgZone , public geolocation : Geolocation ,
               public productService : ProductService , public alertCtrl : AlertController,
-              private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic,public nativeStorage:NativeStorage) {
+              private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic,public nativeStorage:NativeStorage,private keyboard: Keyboard) {
     platform.ready().then(() => {
       //caching policy
       // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);

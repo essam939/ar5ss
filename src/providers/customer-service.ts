@@ -42,6 +42,9 @@ export class CustomerService {
   public getComplainTypesUrl : string = MainService.baseUrl+"complaintype?lang=";
   public insertComplainUrl : string = MainService.baseUrl+"insertcomplain";
   public contactUrl : string = MainService.baseUrl+"contact";
+  
+  // public contactUrl : string = MainService.baseUrl2+"contact" ; 
+
   public aboutUrl : string = MainService.baseUrl+"about?lang=";
   public updateUserUrl : string = MainService.baseUrl+"updateuser/";
   public updateQtyUrl : string = MainService.baseUrl+"modifaycart/";
@@ -293,10 +296,12 @@ export class CustomerService {
   {
     let body = {
       Email : Email ,
-      Title : Title ,
+      Title : Title , 
       Body : Body
     };
-    return this.http.post(this.contactUrl,body).map((res) => res.json());
+    return this.http.post(this.contactUrl,body).map((res) =>{
+      console.log('ress',res)
+      res.json()});
   }
 
   insertComplain(UserID : number, ComplainTypeId : number, Tittle :string, Descriotion : string)
@@ -608,3 +613,4 @@ export class CustomerService {
 
 
 }
+ 

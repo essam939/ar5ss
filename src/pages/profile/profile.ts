@@ -39,6 +39,7 @@ export class Profile {
   logOut()
   {
     this.customerService.customerStorageErase();
+    this.navCtrl.setRoot("HomePage");
   }
   history()
   {

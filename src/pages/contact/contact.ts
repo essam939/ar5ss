@@ -29,16 +29,19 @@ export class Contact {
       this.contactInfo.Title ,
       this.contactInfo.Body
     ).subscribe((res)=>{
-      if(res.stuts == "true")
-      {
-        console.log(res);
-        this.commonService.successToast();
-        this.navCtrl.pop();
-      }
-      else{
-        console.log(res);
-        this.commonService.errorToast();
-      }
-    });
-  }
+      console.log(res);
+      this.commonService.successToast();
+      this.navCtrl.pop();
+  //     if(res.stuts == "true")
+  //     {
+  //       console.log(res);
+  //       this.commonService.successToast();
+  //       this.navCtrl.pop();
+  //     }
+  //     else{
+  //       console.log(res);
+  //       this.commonService.errorToast();
+  //     }
+     });
+   }
 }

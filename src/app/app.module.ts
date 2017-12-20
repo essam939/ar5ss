@@ -25,7 +25,7 @@ import { DbService } from '../providers/db-service';
 import {NativeGeocoder} from "@ionic-native/native-geocoder";
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { Diagnostic } from '@ionic-native/diagnostic';
-
+import { Keyboard } from '@ionic-native/keyboard';
 
 
 
@@ -74,7 +74,8 @@ export function createTranslateLoader(http: Http) {
     SocialSharing ,
     SQLite,
     DbService,
-    NativeGeocoder
+    NativeGeocoder,
+    Keyboard
   ]
 })
 export class AppModule {}

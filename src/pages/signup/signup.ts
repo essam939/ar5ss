@@ -33,13 +33,17 @@ export class SignupPage {
       this.customer.Name,this.customer.Email,this.customer.Password,
       966+this.customer.Mobile,this.customer.Image , this.customer.CityID
     ).subscribe((data)=>{
-      if(data.error)
-        this.commonService.presentToast(data.error);
-      else if (data.Error)
+      if(data.error){
+         this.commonService.presentToast(data.error);
+      }
+      else if (data.Error){
+       
         this.commonService.presentToast(data.Error);
-      else
+       } else
       {
-        this.successlogin(data);
+     //   this.successlogin(data);
+     this.commonService.translateAndToast('please confirm your email address');
+     this.navCtrl.push("HomePage");
       }
     });
   }

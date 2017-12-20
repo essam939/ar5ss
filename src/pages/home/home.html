@@ -30,9 +30,15 @@
 
   <!--<ion-item class="headitem">-->
 <ion-row>
-
-
-  <ion-col col-9 style="padding:0">
+<ion-col col-2 style="
+ background: white;
+text-align: center;
+padding: 5px;
+background-color: white;
+font-size: 2rem;
+color: gray;">
+<ion-icon name="search"></ion-icon></ion-col>
+  <ion-col col-7 style="padding:0;    background: white;">
     <ion-searchbar [(ngModel)]="KeyWord" (ionInput)="searchProduct()"  type="text" placeholder="{{ 'Search' | translate}}"> </ion-searchbar></ion-col>
   <ion-col col-3 style="padding:0">
        <div style="text-align: center;background: white;padding-top: 10px;height: 42px;" (click)="scan()">

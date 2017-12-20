@@ -27,6 +27,7 @@
     "@ionic-native/diagnostic": "^4.4.2",
     "@ionic-native/geolocation": "^4.4.2",
     "@ionic-native/http": "^4.4.2",
+    "@ionic-native/keyboard": "^4.5.2",
     "@ionic-native/native-geocoder": "^4.4.2",
     "@ionic-native/native-storage": "^4.4.2",
     "@ionic-native/network": "^4.4.2",
