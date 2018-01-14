@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {CustomerService} from "../../providers/customer-service";
 import { NativeStorage } from '@ionic-native/native-storage';
+import { AlertController } from 'ionic-angular';
+import {TranslateService} from "@ngx-translate/core";
 /**
  * Generated class for the LogPage page.
  *
@@ -16,8 +18,9 @@ import { NativeStorage } from '@ionic-native/native-storage';
 })
 export class LogPage {
  product:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public customerService:CustomerService,private nativeStorage: NativeStorage,public commonService:CommonService) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams,public customerService:CustomerService,private nativeStorage: NativeStorage,public commonService:CommonService,private alertCtrl: AlertController, public translate : TranslateService) {
+  this.presentAlert();
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LogPage');
@@ -31,9 +34,24 @@ export class LogPage {
     this.nativeStorage.getItem('cartlog').then((res)=>{
       this.product=res;
     });
-this.commonService.translateAndToast('We received your order and will communicate with you soon');
+//this.commonService.translateAndToast('We received your order and will communicate with you soon');
   }
   GoHome(){
-    this.navCtrl.push("HomePage");
+    this.navCtrl.setRoot("HomePage");
   }
+presentAlert(){
+   this.translate.get('We received your order and will communicate with you soon').subscribe(
+      value => {
+        // value is our translated string
+        let alert = this.alertCtrl.create({
+          subTitle: value,
+          buttons: [
+            {
+              text: 'Ok',
+            }
+          ]
+        });
+        alert.present();
+   })
+}
 }

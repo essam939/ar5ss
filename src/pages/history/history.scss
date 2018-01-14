@@ -105,4 +105,28 @@ page-history {
     width: 80%;
     margin: 10% auto;
   }
+.segment-ios .segment-button:first-of-type{
+  border: none;
+    position:static !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+.segment-ios .segment-button:last-of-type{
+  border: none;
+    position: static !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+[dir="rtl"] .segment-ios .segment-button:first-of-type{
+    border: none;
+    position: static !important;
+    top: 0;
+    right: 0 !important;
+}
+[dir="rtl"] .segment-ios .segment-button:last-of-type{
+    border: none ;
+    position: static !important;
+    top: 0;
+    right: 0 !important;
+}
 }

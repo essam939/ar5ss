@@ -19,7 +19,7 @@ import { Diagnostic } from '@ionic-native/diagnostic';
 import { ResourceLoader } from '@angular/compiler';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Keyboard } from '@ionic-native/keyboard';
-
+import { FCM } from '@ionic-native/fcm';
 @Component({
   templateUrl: 'app.html'
 })
@@ -42,8 +42,14 @@ export class MyApp {
               public commonService : CommonService , public cache : CacheService ,
               public dbService : DbService , public zone: NgZone , public geolocation : Geolocation ,
               public productService : ProductService , public alertCtrl : AlertController,
-              private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic,public nativeStorage:NativeStorage,private keyboard: Keyboard) {
+              private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic,public nativeStorage:NativeStorage,private keyboard: Keyboard,private fcm: FCM) {
     platform.ready().then(() => {
+     
+      fcm.getToken().then(token=>{
+this.customerService.deviceToken = token;
+console.log("token id"+token)
+})
+  this.checkLocation();
       //caching policy
       // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
       // this.checkLocation();
@@ -232,7 +238,8 @@ if(this.message==true){
       ios: {
           alert: 'true',
           badge: true,
-          sound: 'false'
+          sound: 'false',
+fcmSandbox:true
       },
       windows: {},
       browser: {}
@@ -245,7 +252,7 @@ if(this.message==true){
     });
 
     pushObject.on('registration').subscribe((registration: any) => {
-      this.customerService.deviceToken = registration.registrationId ;
+     // this.customerService.deviceToken = registration.registrationId ;
       this.customerService.tokenStorageSave(registration.registrationId);
       console.log('Device registered', registration);
      });

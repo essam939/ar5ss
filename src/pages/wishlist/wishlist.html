@@ -11,7 +11,7 @@
       <p class="cartNoInner">{{ cartNo }}</p>
       <!--<ion-icon *ngIf="wishList.length == 0" style="float: right;margin-top: 10px;color: lightgrey;" ios="ios-heart" md="md-heart" (click)="goToFav()"></ion-icon>-->
       <!--<ion-icon *ngIf="wishList.length > 0" style="float: right;margin-top: 10px;color: crimson;" ios="ios-heart" md="md-heart" (click)="goToFav()"></ion-icon>-->
-      <ion-icon  style="float: right;margin-top: 10px;" (click)="goToCart()">
+      <ion-icon  style="float: right;" (click)="goToCart()">
         <img *ngIf="cart.length == 0" style="width: 20px;" src="assets/imgs/cart_off.png">
         <img *ngIf="cart.length > 0" style="width: 20px;"  src="assets/imgs/cart_on.png">
       </ion-icon>

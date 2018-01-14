@@ -36,7 +36,7 @@ text-align: center;
 padding: 5px;
 background-color: white;
 font-size: 2rem;
-color: gray;">
+color: gray;" (click)="hidekeybord()">
 <ion-icon name="search"></ion-icon></ion-col>
   <ion-col col-7 style="padding:0;    background: white;">
     <ion-searchbar [(ngModel)]="KeyWord" (ionInput)="searchProduct()"  type="text" placeholder="{{ 'Search' | translate}}"> </ion-searchbar></ion-col>
@@ -58,20 +58,21 @@ color: gray;">
 <ion-content>
   <!--(ionSlideDidChange)="slideChanged()"-->
 <div *ngIf="hotads?.Slider.length > 0" class="imgdiv">
-  <ion-slides *ngIf="hotads?.Mode[0].Mode == 1"  pager="true" [autoplay]="5000" [loop]="true" dir="ltr"><!-- loop="true" -->
+  <ion-slides *ngIf="hotads?.Mode[0].Mode == 1"  pager="true" [autoplay]="5000" [loop]="true"  dir="ltr"><!-- loop="true" -->
     <ion-slide 
       *ngFor="let image of hotads.Slider" (click)="goToHotOffers(image.CategoryID , image.ProductID)"
       style="background-size: cover;" [style.background-image]="getBackground(image.Image)"
       >
     </ion-slide>
-    <ion-slides *ngIf="hotads?.Mode[0].Mode != 1" pager dir="ltr">
+      </ion-slides>
+    <ion-slides *ngIf="hotads?.Mode[0].Mode == 0"  dir="ltr">
       <ion-slide 
         *ngFor="let image of hotads.Slider"(click)="goToHotOffers(image.CategoryID , image.ProductID)"
         style="background-size: cover;" [style.background-image]="getBackground(image.Image)"
         >
       </ion-slide>
     </ion-slides>
-  </ion-slides>
+
 
 </div>
 
@@ -98,8 +99,8 @@ color: gray;">
                   <!--تم تعديل هذا الجزء وحذف المميز وشرط مجموعه التصفيه بالاسم بدل الاى دى-->
                   <!--<img *ngIf="product.HotOfferID > 0 && MainService.lang == 'en'" class="hot" src="assets/imgs/special.png">-->
                   <!--<img *ngIf="product.HotOfferID > 0  && MainService.lang == 'ar'" class="hot" src="assets/imgs/special_ar.png">-->
-                  <img *ngIf="group.Group.group_nameen == 'Sale'&& MainService.lang == 'en'" class="hot" src="assets/imgs/hot.png">
-                  <img *ngIf="group.Group.group_name == 'تصفية' && MainService.lang == 'ar'" class="hot" src="assets/imgs/hot_ar.png">
+                  <img *ngIf="group.Group.GroupShowID == '4'&& MainService.lang == 'en'" class="hot" src="assets/imgs/hot.png">
+                  <img *ngIf="group.Group.GroupShowID == '4' && MainService.lang == 'ar'" class="hot" src="assets/imgs/hot_ar.png">
 
                 </div>
                 <span style="

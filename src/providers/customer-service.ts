@@ -8,7 +8,7 @@ import {TranslateService} from "@ngx-translate/core";
 import {Geolocation} from "@ionic-native/geolocation";
 import {Observable} from "rxjs";
 import {DbService} from "./db-service";
-
+import { FCM } from '@ionic-native/fcm';
 /*
   Generated class for the CustomerService provider.
 
@@ -25,7 +25,7 @@ export class CustomerService {
   public lat : any ;
   public lang : any ;
   public online : boolean = true ;
-  public deviceToken : string = null;
+  public deviceToken : string;
   public customerCreateUrl : string = MainService.baseUrl+"register/";
   public customerLoginUrl : string = MainService.baseUrl+"login/";
   public customerForgetPasswordUrl : string = MainService.baseUrl+"forgetpassword/";
@@ -76,7 +76,7 @@ export class CustomerService {
   public static readonly LastOrderCode = 2 ;
 
 
-  constructor(public http: Http,public nativeStorage : NativeStorage,
+  constructor(private fcm: FCM,public http: Http,public nativeStorage : NativeStorage,
               public commonService : CommonService, public translateService :TranslateService ,
               public geolocation: Geolocation  , public dbService : DbService) {
     console.log('Hello CustomerService Provider');
@@ -386,6 +386,11 @@ export class CustomerService {
   }
   addToCartOnline(ProductID : number , SellerID : number)
   {
+    let self=this;
+          this.fcm.getToken().then(token=>{
+self.deviceToken = token;
+console.log("token id"+token)
+})
     let body ;
     if(this.customer != null)
     {

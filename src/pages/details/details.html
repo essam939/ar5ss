@@ -30,7 +30,7 @@
     </div>
   </ion-slides>
   <div style="margin-top: -170px;">
-<h2 text-center style="padding-top: 20px;"> {{productDetails?.product_name}} , <small>{{(MainService.lang == 'ar') ? productDetails?.size : productDetails?.sizeen}}</small></h2>
+<h2 text-center> {{productDetails?.product_name}} , <small>{{(MainService.lang == 'ar') ? productDetails?.size : productDetails?.sizeen}}</small></h2>
 <p class="style">{{productDetails?.ProductPrice}} {{ 'SAR' | translate}}</p>
 <div style="text-align: center">
  <ion-icon *ngFor="let icon of icons(productDetails?.Rate); let i = index;" class="iconcolor" [name]="icon"></ion-icon>

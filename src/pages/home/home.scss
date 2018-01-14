@@ -1,6 +1,7 @@
 page-home {
 .infiniteScroll{
   overflow-y : auto;
+  height: 293px;
 }
   .back-button.show-back-button{
       display: none;
@@ -16,12 +17,12 @@ page-home {
   .content{
     background:#f1f5f5;
  }
-.back-button-md{
+.back-button{
     margin-left: 0;
     margin-right: 0;
     min-width: 0;
 }
-.toolbar-title-md{
+.toolbar-title{
     padding-left: 0;
 }
 .search{
@@ -75,7 +76,7 @@ page-home {
     //padding: 13%;
             .scroll-content{
                 white-space: nowrap;
-                height: 290px;
+                height: 300px;
                 overflow-x:scroll;
                 margin-top: 20px;
                 margin-right: auto;
@@ -91,7 +92,7 @@ page-home {
     border-radius: 15px;
     margin: 0;
     margin-left: 8px;
-    margin-top: 15px;
+    margin-top: 10px;
     background: whitesmoke;
  }
 
@@ -169,7 +170,7 @@ page-home {
  .hot{
     width: 24%;
     float: right;
-    margin-top: -23px;
+    margin-top: -45px;
  }
   .slides{
     height: 155px;
@@ -257,9 +258,9 @@ page-home {
   .titlelogo{
     font-family: hacen-samra-lt !important;
     color: #333366 !important;
-    font-weight: 600;
+    font-weight: bolder !important;
     font-size: 3rem;
-    margin-left: 33px;
+    // margin-left: 33px;
   }
   .toolbar-title{
     direction: rtl;
@@ -306,10 +307,10 @@ page-home {
     color: crimson;
     top: 5px;
   }
-  .select-md{
+  .select{
     padding: 0 !important;
   }
-  .select-md .select-icon{
+  .select .select-icon{
     display: none;
   }
   .item-cover{
@@ -319,7 +320,7 @@ page-home {
   .searchbar-search-icon{
     display: none;
   }
-  .searchbar-md .searchbar-input {
+  .searchbar .searchbar-input {
     text-align: center;
      padding-left: 0; 
      padding-right: 0;

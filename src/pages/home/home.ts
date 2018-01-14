@@ -136,6 +136,7 @@ export class HomePage {
   {
     this.productService.groupShow().subscribe((res:any)=>{
       this.groupShow = res ;
+      console.log(this.groupShow);
       this.productService.hotads().subscribe((res)=>{
         console.log(res)
         this.hotads = res ;
@@ -278,6 +279,10 @@ export class HomePage {
   openpro(){
     this.navCtrl.push("Profile");
   }
+  hidekeybord(){
+    this.keyboard.close();
+    console.log("Keyboard closed");
+  }
   opensett(){
     this.navCtrl.push("Settings");
   }
@@ -362,4 +367,4 @@ export class HomePage {
   //     }
   //   )
   // }
-}
+  }

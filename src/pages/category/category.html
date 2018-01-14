@@ -2,21 +2,20 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar style="    padding-bottom: 15px;">
     <ion-title>
-      <p class="cartNoInner">{{ cartNo }}</p>
-      <ion-icon  style="float: right;margin-top: 10px;" (click)="goToCart()">
+      <p class="cartNoinner">{{ cartNo }}</p>
+      <ion-icon  class="cartIcons" (click)="goToCart()">
         <img *ngIf="cartNo == 0" style="width: 20px;" src="assets/imgs/cart_off.png">
         <img *ngIf="cartNo > 0" style="width: 20px;"  src="assets/imgs/cart_on.png">
       </ion-icon>
-
-      <span class="titlepadding">
+       <span class="titlepadding">
       <span class="titlelogo">أرخص<img src="assets/imgs/navigate-arrows.png"></span></span><br>
-            <!--<ion-icon class="search" ios="ios-search" md="md-search" (click)="gotosearch()"></ion-icon>-->
-          <span class="categorytitle">{{ 'Category' | translate}}</span>
-
-
- <div class="headdiv">
+      <ion-row style="    margin-right: 149px;
+    color: crimson;position: fixed;
+    top: 47px;">   <div >{{ 'Category' | translate}}</div></ion-row>
+       
+<div>
     <ion-segment [(ngModel)]="showing">
         <ion-segment-button [hidden]="showing == 'grid'" value="grid">
             <ion-icon style="padding-right:3px" ios="ios-grid" md="md-grid"></ion-icon>
@@ -26,6 +25,27 @@
         </ion-segment-button>
      </ion-segment>
       </div>
+      <!--<p class="cartNoInner">{{ cartNo }}</p>
+      <ion-icon  style="float: right;margin-top: 10px;" (click)="goToCart()">
+        <img *ngIf="cartNo == 0" style="width: 20px;" src="assets/imgs/cart_off.png">
+        <img *ngIf="cartNo > 0" style="width: 20px;"  src="assets/imgs/cart_on.png">
+      </ion-icon>
+
+      <span class="titlepadding">
+      <span class="titlelogo">أرخص<img src="assets/imgs/navigate-arrows.png"></span></span><br>
+          <span class="categorytitle">{{ 'Category' | translate}}</span>
+
+
+ <div>
+    <ion-segment [(ngModel)]="showing">
+        <ion-segment-button [hidden]="showing == 'grid'" value="grid">
+            <ion-icon style="padding-right:3px" ios="ios-grid" md="md-grid"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button [hidden]="showing == 'list'" value="list">
+            <ion-icon ios="ios-list" md="md-list"></ion-icon>
+        </ion-segment-button>
+     </ion-segment>
+      </div>-->
     </ion-title>
   </ion-navbar>
     <ion-row class="headrow">
