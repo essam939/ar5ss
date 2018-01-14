@@ -70,8 +70,10 @@
         <ion-icon ios="ios-call" md="md-call"></ion-icon>
       </ion-col>
       <ion-col col-11>
-        <ion-input [(ngModel)]="customer.Mobile" name="Mobile" style="width:65%" type="tel" placeholder="{{ 'Phone Number' | translate}}" required></ion-input>
-        <ion-input style="width:20%;margin-right: 5%;" type="number" placeholder="966" value="966" readonly></ion-input>
+
+        <ion-input [(ngModel)]="customer.Mobile" name="Mobile" style="width:65%" type="number" placeholder="{{ 'Phone Number' | translate}}" required></ion-input>
+        <ion-input style="width:20%;margin-right: 5%;" type="tel" placeholder="966" value="966" readonly></ion-input>
+
 
       </ion-col>
     </ion-row>
