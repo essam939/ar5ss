@@ -8,6 +8,9 @@ page-log {
         float: right;
         color: gray;
       }
+      .back-button.show-back-button{
+      display: none;
+  }
       .toolbar-title-md {
         padding: 0 12px;
         font-size: 2rem;

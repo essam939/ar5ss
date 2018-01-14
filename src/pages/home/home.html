@@ -54,26 +54,26 @@ color: gray;">
 
 
 </ion-header>
-
 <ion-content>
   <!--(ionSlideDidChange)="slideChanged()"-->
-<div *ngIf="hotads?.Slider.length > 0" class="imgdiv">
-  <ion-slides *ngIf="hotads?.Mode[0].Mode == 1"  pager="true" [autoplay]="5000" [loop]="true" dir="ltr"><!-- loop="true" -->
-    <ion-slide 
+ <div *ngIf="hotads?.Slider.length > 0" class="imgdiv">
+  <ion-slides *ngIf="hotads?.Mode[0].Mode == 1"  pager="true" [autoplay]="5000" [loop]="true"  dir="ltr"><!-- loop="true" -->
+    <ion-slide
       *ngFor="let image of hotads.Slider" (click)="goToHotOffers(image.CategoryID , image.ProductID)"
       style="background-size: cover;" [style.background-image]="getBackground(image.Image)"
       >
     </ion-slide>
-    <ion-slides *ngIf="hotads?.Mode[0].Mode != 1" pager dir="ltr">
-      <ion-slide 
+      </ion-slides>
+    <ion-slides *ngIf="hotads?.Mode[0].Mode == 0"  dir="ltr">
+      <ion-slide
         *ngFor="let image of hotads.Slider"(click)="goToHotOffers(image.CategoryID , image.ProductID)"
         style="background-size: cover;" [style.background-image]="getBackground(image.Image)"
         >
       </ion-slide>
     </ion-slides>
-  </ion-slides>
-
-</div>
+ 
+ 
+ </div>
 
 <div *ngIf="!showSearch" style="margin-bottom: 50px;">
   <div  class="products" *ngFor="let group of groupShow">

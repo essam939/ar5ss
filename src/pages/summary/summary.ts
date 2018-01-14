@@ -1,3 +1,4 @@
+import { LoadingController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import {NavController, NavParams, ActionSheetController, ModalController, IonicPage} from 'ionic-angular';
 import {CommonService} from "../../providers/common-service";
@@ -25,7 +26,7 @@ export class SummaryPage {
   constructor(public navCtrl: NavController, public navParams: NavParams ,
               public actionSheetCtrl :  ActionSheetController , public commonService : CommonService ,
               public payPal: PayPal , public customerService : CustomerService , public modalCtrl :ModalController ,
-              public nativeGeocoder: NativeGeocoder) {
+              public nativeGeocoder: NativeGeocoder,public loadingCtrl: LoadingController) {
       this.cartTotal = this.navParams.data.cartTotal ;
       console.log(this.cartTotal);
       this.cartShipping = this.navParams.data.cartShipping ;
@@ -196,7 +197,13 @@ export class SummaryPage {
   }
   confirmOrder()
   {
-    this.commonService.presentLoading("please Wait .....");
+
+
+  let loading = this.loadingCtrl.create({
+    content: 'Please wait...'
+  });
+  loading.present();
+    //this.commonService.presentLoading("please Wait .....");
     this.flag = true;
     this.nativeGeocoder.reverseGeocode(this.location.latitude,this.location.longitude)
       .then((result: NativeGeocoderReverseResult) => {
@@ -204,9 +211,9 @@ export class SummaryPage {
         this.customerService.confirmOrder(this.PaymentID,this.LocationID,result.administrativeArea).subscribe((res)=>{
           if(res.state == '202')
           {
+           loading.dismiss();
             this.commonService.successToast();
             this.navCtrl.push("LogPage");
-            
           }
           else
             this.commonService.errorToast();
