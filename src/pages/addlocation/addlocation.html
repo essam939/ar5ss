@@ -14,14 +14,14 @@
   <ion-col col-1>
     <img class="user" src="assets/imgs/ic_user.png">
   </ion-col>
-   <ion-col col-9>
+   <ion-col col-8>
   <ion-item >
     <!--<ion-label color="btncol" stacked>{{ 'Address' | translate}}</ion-label>-->
     <ion-input style="position: absolute;" [(ngModel)]="place" name="place" type="text" color="dark" placeholder="{{ 'Address' | translate}}" required></ion-input>
   </ion-item>
   </ion-col>
-  <ion-col col-2>
-    <button ion-button type="submit" [disabled]="!f.valid"  (click)="confirm()">{{'Confirm' | translate}}</button>
+  <ion-col col-3>
+    <button ion-button type="submit" style="margin: 0 auto;width: 90%;" [disabled]="!f.valid"  (click)="confirm()">{{'Confirm' | translate}}</button>
   </ion-col>
 </ion-row>
   </form>

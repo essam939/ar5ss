@@ -56,14 +56,14 @@ export class Settings {
     this.platform.setDir('rtl', true);
   console.log(type);
   console.log("arabic");
-  this.navCtrl.setRoot("HomePage");
   }
   else
   {
     this.platform.setDir('ltr', true);
     console.log(type);
+    MainService.lang = type;
     console.log("English");
-     this.navCtrl.setRoot("HomePage");
+    
   }
 }
   goToFav()

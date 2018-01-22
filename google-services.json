@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "982607177369",
-    "firebase_url": "https://ar5ss-8bb92.firebaseio.com",
-    "project_id": "ar5ss-8bb92",
-    "storage_bucket": "ar5ss-8bb92.appspot.com"
+    "project_number": "395500859635",
+    "firebase_url": "https://ar5ssa-9989f.firebaseio.com",
+    "project_id": "ar5ssa-9989f",
+    "storage_bucket": "ar5ssa-9989f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:982607177369:android:54cbbc2803e2c781",
+        "mobilesdk_app_id": "1:395500859635:android:9995e6458773a603",
         "android_client_info": {
-          "package_name": "com.ar5ss.ksa2000"
+          "package_name": "com.ar5ss.ksa200"
         }
       },
       "oauth_client": [
         {
-          "client_id": "982607177369-7hh2ld78qrc2vd06nme7nbqgu62dtcsv.apps.googleusercontent.com",
+          "client_id": "395500859635-qot2a2tlnp9qk86ojg2i5cgu2rm4krj2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD7V0IHEQJ19tLJKu2ixfhV6MGnSwMEMDI"
+          "current_key": "AIzaSyBuB-B7Ci_FhYQXhmxi3BlvutrcxtDUQ78"
         }
       ],
       "services": {

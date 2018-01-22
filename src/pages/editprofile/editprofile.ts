@@ -22,6 +22,7 @@ export class Editprofile {
   }
   updateUser(inputs : any)
   {
+    console.log(inputs);
     this.customerService.updateUser(
       inputs.Name ,
       inputs.Email ,

@@ -1,3 +1,4 @@
+import { OpenNativeSettings } from '@ionic-native/open-native-settings';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -75,7 +76,9 @@ export function createTranslateLoader(http: Http) {
     SQLite,
     DbService,
     NativeGeocoder,
-    Keyboard
+    Keyboard,
+    OpenNativeSettings,
+    Diagnostic
   ]
 })
 export class AppModule {}

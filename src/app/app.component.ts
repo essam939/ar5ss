@@ -19,7 +19,9 @@ import { Diagnostic } from '@ionic-native/diagnostic';
 import { ResourceLoader } from '@angular/compiler';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Keyboard } from '@ionic-native/keyboard';
+import { OpenNativeSettings } from '@ionic-native/open-native-settings';
 
+declare var cordova: any;
 @Component({
   templateUrl: 'app.html'
 })
@@ -37,13 +39,23 @@ export class MyApp {
   @ViewChild('nav') nav:NavController;
   public  MainService = MainService;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
-              public customerService : CustomerService ,  private push :Push ,
+    private openNativeSettings: OpenNativeSettings,          
+    public customerService : CustomerService ,  private push :Push ,
               public translate : TranslateService , public network: Network ,
               public commonService : CommonService , public cache : CacheService ,
               public dbService : DbService , public zone: NgZone , public geolocation : Geolocation ,
               public productService : ProductService , public alertCtrl : AlertController,
               private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic,public nativeStorage:NativeStorage,private keyboard: Keyboard) {
     platform.ready().then(() => {
+      let self = this;
+      cordova.plugins.diagnostic.isLocationAvailable(function(available){
+        console.log("Location is " + (available ? "available" : "not available"));
+        if(!available){
+           self.showMyAlert();
+        }
+    }, function(error){
+        console.error("The following error occurred: "+error);
+    });
       //caching policy
       // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
       // this.checkLocation();
@@ -103,11 +115,13 @@ this.nativeStorage.getItem('lang').then((res)=>{
 if(res=='ar'){
   this.translate.setDefaultLang('ar');
   platform.setDir('rtl', true);
+  MainService.lang = 'ar';
   console.log('arabic');
 }
 else if(res == 'en'){
   this.translate.setDefaultLang('en');
   platform.setDir('ltr', true);
+  MainService.lang = 'en';
   console.log('English');
 }
 else if(!res){
@@ -132,6 +146,13 @@ else{
     });
   }
 ///////////////////////////////////////
+checkNativeLocation(){
+  this.openNativeSettings.open('location').then((res)=>console.log(res)).catch((err)=>console.log(err));
+}
+
+
+
+
 checkLocation()
 {
 
@@ -301,6 +322,22 @@ if(this.message==true){
           // this.readNotifications(data.additionalData.notification_id);
         }
       }]
+    });
+    alert.present();
+  }
+
+
+  showMyAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'تحديد المكان',
+      subTitle: ' من فضلك قم بفتح خاصيه تحديد المكان من الهاتف ',
+      buttons: [{
+        text: 'OK',
+        handler: data => {
+          this.checkNativeLocation();
+          
+        }
+        }]
     });
     alert.present();
   }

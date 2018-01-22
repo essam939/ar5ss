@@ -1,3 +1,4 @@
+import { MainService } from './../../providers/main-service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {CustomerService} from "../../providers/customer-service";
@@ -11,6 +12,7 @@ import {CommonService} from "../../providers/common-service";
 export class HistoryPage {
   public recentHistory : any [] = [];
   public lastHistory : any [] = [];
+  public MainService = MainService;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public customerService : CustomerService , public commonService :  CommonService) {
   }
@@ -22,6 +24,7 @@ export class HistoryPage {
   {
     this.customerService.orderHistory(CustomerService.RecentOrderCode).subscribe((res)=>{
       this.recentHistory = res ;
+      console.log(this.recentHistory);
     });
     this.customerService.orderHistory(CustomerService.LastOrderCode).subscribe((res)=>{
       this.lastHistory = res ;

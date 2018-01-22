@@ -39,7 +39,7 @@ font-size: 2rem;
 color: gray;">
 <ion-icon name="search"></ion-icon></ion-col>
   <ion-col col-7 style="padding:0;    background: white;">
-    <ion-searchbar [(ngModel)]="KeyWord" (ionInput)="searchProduct()"  type="text" placeholder="{{ 'Search' | translate}}"> </ion-searchbar></ion-col>
+    <ion-searchbar [(ngModel)]="KeyWord" (keypress)="hideScreen()" (ionInput)="searchProduct()"  type="text" placeholder="{{ 'Search' | translate}}"> </ion-searchbar></ion-col>
   <ion-col col-3 style="padding:0">
        <div style="text-align: center;background: white;padding-top: 10px;height: 42px;" (click)="scan()">
     <img style="width: 22px;" src="assets/imgs/barcode.png">
@@ -98,9 +98,8 @@ color: gray;">
                   <!--تم تعديل هذا الجزء وحذف المميز وشرط مجموعه التصفيه بالاسم بدل الاى دى-->
                   <!--<img *ngIf="product.HotOfferID > 0 && MainService.lang == 'en'" class="hot" src="assets/imgs/special.png">-->
                   <!--<img *ngIf="product.HotOfferID > 0  && MainService.lang == 'ar'" class="hot" src="assets/imgs/special_ar.png">-->
-                  <img *ngIf="group.Group.group_nameen == 'Sale'&& MainService.lang == 'en'" class="hot" src="assets/imgs/hot.png">
-                  <img *ngIf="group.Group.group_name == 'تصفية' && MainService.lang == 'ar'" class="hot" src="assets/imgs/hot_ar.png">
-
+                  <img *ngIf="group.Group.GroupShowID == '4'&& MainService.lang == 'en'" class="hot" src="assets/imgs/hot.png">
+                  <img *ngIf="group.Group.GroupShowID == '4' && MainService.lang == 'ar'" class="hot" src="assets/imgs/hot_ar.png">
                 </div>
                 <span style="
     height: 115px;
