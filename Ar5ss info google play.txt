@@ -1,3 +1,5 @@
+email : ar5ssksa@gmail.com
+password : Ar5ssksA5
 alias name : ar5ssapp
 first key password : ar5ssapp
 second key password : 123456 
