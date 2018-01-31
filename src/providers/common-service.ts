@@ -19,6 +19,7 @@ export class CommonService {
   public iconFull: string = 'star';
   constructor(public http: Http,public toastCtrl : ToastController ,
               public translateService : TranslateService , public loadingCtrl : LoadingController) {
+
     console.log('Hello CommonService Provider');
   }
   presentToast(txt:string) {
@@ -127,6 +128,7 @@ export class CommonService {
     let sum : number = 0;
     for(let i = 0 ; i < inputs.length ; i++)
       sum += inputs[i].value ;
+
     return sum;
   }
   // Rate Service

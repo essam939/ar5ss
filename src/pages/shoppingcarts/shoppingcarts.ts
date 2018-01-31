@@ -1,3 +1,4 @@
+import { ProductService } from './../../providers/product-service';
 import {Component, ViewChildren} from '@angular/core';
 import {NavController, NavParams, IonicPage} from 'ionic-angular';
 import {CustomerService} from "../../providers/customer-service";
@@ -12,10 +13,17 @@ export class ShoppingcartsPage {
   public cartDetails : any[] ;
   public cartTotal : number = 0 ;
   public cartShipping :  number = 0;
+  public vat : number = 0;
+  public vat1 : number ;
+  public TotalVat : number = 0 ;
   @ViewChildren('prices') itemsPriceRef;
-  constructor(public navCtrl: NavController, public navParams: NavParams ,
+  constructor(public product :ProductService,public navCtrl: NavController, public navParams: NavParams ,
               public customerService: CustomerService , public commonService : CommonService,private nativeStorage: NativeStorage ) {
-
+                this.product.getVat().subscribe((res)=>{
+                  console.log(res);
+                  console.log(res.value);
+                  this.vat = res.value / 100;
+                });
   }
   ionViewWillEnter()
   {
@@ -25,7 +33,14 @@ export class ShoppingcartsPage {
       this.cartTotal = this.initCartTotal();
       this.nativeStorage.setItem('cartlog',this.cartDetails);
     });
+    this.product.getVat().subscribe((res)=>{
+      console.log(res);
+      console.log(res.value);
+      this.vat = res.value / 100;
+    });
   }
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShoppingcartsPage');
   }
@@ -33,7 +48,7 @@ export class ShoppingcartsPage {
     if(this.customerService.customer != null)
       this.navCtrl.push("SummaryPage",{
         cartShipping:this.cartShipping ,
-        cartTotal:this.cartTotal
+        cartTotal:this.TotalVat
       });
     else this.navCtrl.push("LoginPage");
   }
@@ -45,6 +60,8 @@ export class ShoppingcartsPage {
     {
       sum += this.cartDetails[i].ProductPrice * this.cartDetails[i].QTY;
       shipping += this.cartDetails[i].Real_Shiping ;
+      this.vat1 = sum * this.vat;
+      this.TotalVat = sum + this.vat1;
     }
     this.cartShipping = shipping ;
     return sum;
@@ -62,7 +79,9 @@ export class ShoppingcartsPage {
   }
   updateTotalCart()
   {
-    this.cartTotal = this.commonService.sumInputValuesWithFilter(this.itemsPriceRef._results );
+    this.cartTotal = this.commonService.sumInputValuesWithFilter(this.itemsPriceRef._results);
+    this.vat1 = this.cartTotal * this.vat;
+    this.TotalVat = this.cartTotal + this.vat1;
   }
   deleteCart(CartID : number , ProductID : number)
   {

@@ -14,7 +14,7 @@ import {Observable} from "rxjs";
 */
 @Injectable()
 export class ProductService {
-
+  public getVatUrl :string =  MainService.baseUrl+"getvat"  ;
   public categoryUrl : string = MainService.baseUrl+"category/";
   public categoryProductsUrl : string = MainService.baseUrl+"getcategorydeatails/";
   public hotadsUrl : string = MainService.baseUrl+"hotads/";
@@ -59,6 +59,10 @@ export class ProductService {
   getProductProperty(ProductID : number)
   {
     return this.http.get(this.getProductPropertyUrl + ProductID + '?lang=' + MainService.lang).map((res) => res.json());
+  }
+  getVat()
+  {
+    return this.http.get(this.getVatUrl).map((res) => res.json());
   }
   productColor(ProductID : number , ColorID : number)
   {

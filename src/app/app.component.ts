@@ -48,17 +48,21 @@ export class MyApp {
               private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic,public nativeStorage:NativeStorage,private keyboard: Keyboard) {
     platform.ready().then(() => {
       let self = this;
-      cordova.plugins.diagnostic.isLocationAvailable(function(available){
+      cordova.plugins.diagnostic.isLocationEnabled(function(available){
+        console.log(available);
         console.log("Location is " + (available ? "available" : "not available"));
-        if(!available){
+
+        if(available == false){
+          console.log('this loction not available');
            self.showMyAlert();
         }
+        
     }, function(error){
         console.error("The following error occurred: "+error);
     });
-      //caching policy
-      // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
-      // this.checkLocation();
+    //   caching policy
+    //   this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+    //   this.checkLocation();
       this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(res=>{
         console.log('network :: ',res)
         if(res['hasPermission']){

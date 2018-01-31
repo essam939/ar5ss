@@ -28,7 +28,7 @@
       <ion-input [attr.id]="'price'+product.ProductID" [hidden]="true" #prices [value]="quantity?.value * product.ProductPrice" ></ion-input>
       {{ quantity?.value * product.ProductPrice}} {{ 'SAR' | translate}}</p>
          <p class="shipping">
-           ({{(product.Shiping != 0)? product.Shiping : 'Free' | translate}} {{'Shipping' | translate}})</p>
+           ({{(product.Real_Shiping != 0)? product.Real_Shiping : 'Free' | translate}} {{'Shipping' | translate}})</p>
         </ion-row>
 
 
@@ -84,8 +84,19 @@
       <ion-col>
         <h5>{{ 'Cart Items' | translate }} : {{cartDetails?.length}} {{ 'Items' | translate}}
           <span style="color: crimson; float: right;">{{ cartTotal + cartShipping}} &nbsp; {{ 'SAR' | translate }}</span></h5>
-        <button class="bt" ion-button block (click)="gotosummary()" > {{ 'Proceed To CheckOut' |translate}}</button>
+         <h5><span style="color: gray;float: right;">{{ vat1}} &nbsp; &nbsp;&nbsp; {{ 'SAR' | translate }}</span> &nbsp;{{'Added value'|translate}}</h5>
+         <hr>
+         <ion-row style="padding: 0 5px 10px;font-size: 25px;">
+           <ion-col col-6>
+             {{ 'Total' | translate}}
+           </ion-col>
+           <ion-col col-6>
+             <span style="color: crimson; float: right;">{{ TotalVat }} &nbsp; {{ 'SAR' | translate }}</span>
+           </ion-col>
+         </ion-row>
+         <button class="bt" ion-button block (click)="gotosummary()" > {{ 'Proceed To CheckOut' |translate}}</button>
       </ion-col>
     </ion-row>
+    
   </ion-list>
 </ion-content>
