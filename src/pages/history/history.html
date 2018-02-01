@@ -41,7 +41,7 @@
           </ion-col>
         </ion-row>
         <p>{{order.payment_name}}</p>
-        <h6>{{calucateTota (order.TotalPrice) }} {{ 'SAR' | translate}}</h6>
+        <h6>{{calucateTota (order.TotalPrice , order.TotalShiping) }} {{ 'SAR' | translate}}</h6>
 
       </ion-card>
     </div>
@@ -63,7 +63,7 @@
           </ion-col>
         </ion-row>
         <p>{{order.payment_name}}</p>
-        <h6>{{calucateTota (order.TotalPrice) }} {{ 'SAR' | translate}}</h6>
+        <h6>{{calucateTota (order.TotalPrice,order.TotalShiping) }} {{ 'SAR' | translate}}</h6>
 
       </ion-card>
     </div>

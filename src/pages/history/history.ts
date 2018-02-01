@@ -47,11 +47,13 @@ export class HistoryPage {
     let res = str.split("th ");
     return res[0];
   }
-  calucateTota(total1){
+  calucateTota(total1 , shipping){
      let total = parseInt(total1);
+     let ship = parseInt(shipping);
      let tot : number = 0;
      tot = total*this.vat;
-     tot  = tot + total;
+     console.log(tot , total , ship);
+     tot  = tot + total + ship;
      return tot;
   }
   orderDetails(order : any)
