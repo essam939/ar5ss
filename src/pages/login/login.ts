@@ -11,6 +11,9 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class LoginPage {
   public customer ;
+  public pwShown = 0;
+  public eyeicon : string = 'eye';
+  public passtype : any = 'password';
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public customerService: CustomerService , public commonService:CommonService ,
               public translateService  : TranslateService) {
@@ -57,4 +60,24 @@ export class LoginPage {
  gohome(){
    this.navCtrl.push("HomePage");
  }
+ 
+
+
+showHide(){
+  let self = this;
+  document.getElementById("eye").addEventListener("click", function () {
+    if (self.pwShown == 0) {
+       
+        self.passtype = 'text';
+        self.eyeicon = 'eye-off';
+        self.pwShown = 1;
+    } else {
+       
+        self.passtype = 'password';
+        self.eyeicon = 'eye' ;
+        self.pwShown = 0;
+    }
+  }, false);
+}
+
 }

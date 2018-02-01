@@ -35,7 +35,7 @@
     </ion-col>
     <ion-col col-11>
       <ion-input type="email" [(ngModel)]="customer.Email" name="Email" required placeholder="{{ 'Email' | translate}}"></ion-input>
-
+  
     </ion-col>
   </ion-row>
   <ion-row>
@@ -44,8 +44,11 @@
 
     </ion-col>
     <ion-col col-11>
-      <ion-input type="password" [(ngModel)]="customer.Password" name="Password" required placeholder="{{ 'Password' | translate}}"></ion-input>
+      <ion-input id="pwd" [type]="passtype" [(ngModel)]="customer.Password" name="Password" required placeholder="{{ 'Password' | translate}}"></ion-input>
+      <ion-icon  id="eye" [name]="eyeicon" (click)="showHide()"></ion-icon>
     </ion-col>
+    
+    
   </ion-row>
   <button ion-button block class="login" [disabled]="!f.valid"  (click)="customerLogin()"> {{ 'Login' | translate}} </button>
   <button ion-button clear class="forget" (click)="gotoforget()"> {{ 'Forget Password ?' | translate}} </button>

@@ -274,6 +274,7 @@ export class CustomerService {
     };
     return this.http.put(this.updateQtyUrl + CartID , body).map((res) => res.json());
   }
+
   updateUser(Name : string ,
              Email : string ,
              Mobile : string ,
@@ -284,7 +285,8 @@ export class CustomerService {
       Email: Email,
       Mobile: Mobile,
       Image: Image ,
-      Password : Password
+      Password : Password,
+      CityID:''
     };
     return this.http.put(this.updateUserUrl + this.customer.UserID , customer).map((res) => res.json());
   }

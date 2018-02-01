@@ -202,6 +202,8 @@ export class SummaryPage {
   let loading = this.loadingCtrl.create({
     content: 'Please wait...'
   });
+
+  
   loading.present();
     //this.commonService.presentLoading("please Wait .....");
     this.flag = true;
@@ -211,7 +213,7 @@ export class SummaryPage {
         this.customerService.confirmOrder(this.PaymentID,this.LocationID,result.administrativeArea).subscribe((res)=>{
           if(res.state == '202')
           {
-           loading.dismiss();
+            
             this.commonService.successToast();
             this.navCtrl.push("LogPage");
           }
@@ -219,7 +221,7 @@ export class SummaryPage {
             this.commonService.errorToast();
         });
     }).catch((error: any) => console.log(error));
-    this.commonService.dismissLoading();
+    loading.dismiss();
   }
 go(){
   this.navCtrl.push("LogPage");

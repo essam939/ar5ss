@@ -65,6 +65,8 @@ export class HomePage {
   /////////////////////////////////////////
 
     showAlert(cname) {
+
+    
       this.translate.get('if you want another town go to the top choose it').subscribe(
         value => {
           // value is our translated string
@@ -88,7 +90,10 @@ export class HomePage {
       )
     }
 
-
+    hideScreen(){
+      
+      this.keyboard.close();
+    }
   initObjects(){
     this.getGroupShow();
     this.countCart();
