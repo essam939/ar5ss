@@ -1,7 +1,6 @@
 page-home {
 .infiniteScroll{
   overflow-y : auto;
-  height: 293px;
 }
   .back-button.show-back-button{
       display: none;
@@ -17,12 +16,12 @@ page-home {
   .content{
     background:#f1f5f5;
  }
-.back-button{
+.back-button-md{
     margin-left: 0;
     margin-right: 0;
     min-width: 0;
 }
-.toolbar-title{
+.toolbar-title-md{
     padding-left: 0;
 }
 .search{
@@ -47,9 +46,10 @@ page-home {
             width: 100%;
         }
 }
-  .products{
-    height: 275px;
-    margin-bottom: 50px;
+  .products{  
+    height: 310px;
+    margin-bottom: 30px;
+    margin-top: 21px;
     .prodh6{
       text-align: start;
       margin: 0;
@@ -76,7 +76,7 @@ page-home {
     //padding: 13%;
             .scroll-content{
                 white-space: nowrap;
-                height: 300px;
+                height:305px;
                 overflow-x:scroll;
                 margin-top: 20px;
                 margin-right: auto;
@@ -92,7 +92,8 @@ page-home {
     border-radius: 15px;
     margin: 0;
     margin-left: 8px;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     background: whitesmoke;
  }
 
@@ -115,7 +116,7 @@ page-home {
     }
  }
 .imgbrand{
-  display: block;
+  display: inline-block;
   width: 40%;
   margin-top: 10px;
 }
@@ -170,7 +171,7 @@ page-home {
  .hot{
     width: 24%;
     float: right;
-    margin-top: -45px;
+    margin-top: 10px;
  }
   .slides{
     height: 155px;
@@ -199,12 +200,12 @@ page-home {
     border-radius: 7px;
     margin-top: 10px;
 
-    .prodimg{
-      height: 100px;
-      width: 65%;
+    // .prodimg{
+    //   height: 100px;
+    //   width: 65%;
 
-      margin-top: 5%;
-    }
+    //   margin-top: 5%;
+    // }
 
     .row{
       padding-left: 10px;
@@ -215,9 +216,9 @@ page-home {
     }
 
     h4{
-            padding:0 10px;
             margin: 5px 0;
             font-size: 15px;
+         
     }
       h5{
         color:gray;
@@ -258,9 +259,9 @@ page-home {
   .titlelogo{
     font-family: hacen-samra-lt !important;
     color: #333366 !important;
-    font-weight: bolder !important;
+    font-weight: 600;
     font-size: 3rem;
-    // margin-left: 33px;
+    margin-left: 33px;
   }
   .toolbar-title{
     direction: rtl;
@@ -307,10 +308,10 @@ page-home {
     color: crimson;
     top: 5px;
   }
-  .select{
+  .select-md{
     padding: 0 !important;
   }
-  .select .select-icon{
+  .select-md .select-icon{
     display: none;
   }
   .item-cover{
@@ -320,7 +321,7 @@ page-home {
   .searchbar-search-icon{
     display: none;
   }
-  .searchbar .searchbar-input {
+  .searchbar-md .searchbar-input {
     text-align: center;
      padding-left: 0; 
      padding-right: 0;
@@ -335,5 +336,33 @@ page-home {
     background-color: #fff;
     background-position: 8px center;
      box-shadow: none ;
+}
+
+.wrapper {
+  position: relative;
+  height: 20px;
+  width: 100%;
+}
+
+.wrapper p {
+  position: absolute;
+  margin: 0;
+  line-height: 20px;
+  font-size: 15px;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.select-ios .select-icon {
+  display:none;
+}
+
+.swiper-slide .swiper-slide-active {
+background-size: 100% 100% !important;
 }
 }

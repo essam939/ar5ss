@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http , Headers ,RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {MainService} from "./main-service";
 import {NativeStorage} from "@ionic-native/native-storage";
@@ -9,6 +9,7 @@ import {Geolocation} from "@ionic-native/geolocation";
 import {Observable} from "rxjs";
 import {DbService} from "./db-service";
 import { FCM } from '@ionic-native/fcm';
+
 /*
   Generated class for the CustomerService provider.
 
@@ -25,7 +26,7 @@ export class CustomerService {
   public lat : any ;
   public lang : any ;
   public online : boolean = true ;
-  public deviceToken : string;
+  public deviceToken : string = '';
   public customerCreateUrl : string = MainService.baseUrl+"register/";
   public customerLoginUrl : string = MainService.baseUrl+"login/";
   public customerForgetPasswordUrl : string = MainService.baseUrl+"forgetpassword/";
@@ -539,13 +540,27 @@ console.log("token id"+token)
     return this.http.post(this.customerCreateUrl+MainService.lang,customer).map((res) => res.json());
   }
   customerLogin(Email : string , Password : string )
-  {
-    let customer = {
-      Email : Email ,
-      Password : Password ,
-      TokenID : this.deviceToken
-    };
-    return this.http.post(this.customerLoginUrl+MainService.lang,customer).map((res) => res.json());
+  { 
+    
+    const headerDict = {
+      
+    }
+                                                                                                                                                                               
+      let headers = new Headers({
+          'Content-Type'  : 'application/json'
+      });
+    
+      // let headers = new Headers(requestOptions);
+      let options = new RequestOptions({headers:headers})
+      let customer = JSON.stringify({
+        Email : Email ,
+        Password : Password ,
+        TokenID : this.deviceToken
+      });
+
+    console.log(headers);
+
+    return this.http.post(this.customerLoginUrl+MainService.lang,customer, options).map((res) => res.json());
   }
   customerStorageSave(customer:any){
     this.nativeStorage.setItem('customer', customer)

@@ -9,7 +9,7 @@ page-category {
 .content{
     background:#f1f5f5;
 }
-.toolbar-title{
+.toolbar-title-md{
     padding-top:10px;
 
 
@@ -19,7 +19,7 @@ page-category {
        padding-left: 5px;
        float: left;
 }
- .header::after{
+ .header-md::after{
      background-image: none;
  }
  .header{
@@ -40,30 +40,23 @@ page-category {
 .segment{
         height: 100%;
 }
-.segment .segment-button{
+.segment-md .segment-button{
        color: #afa8a8;
 }
 
-.segment .segment-button ion-icon{
+.segment-md .segment-button ion-icon{
     font-size: 27px !important;
 }
-.segment .segment-button.segment-activated{
+.segment-md .segment-button.segment-activated{
     border:none;
     background: #d2cfcf;
     border-radius: 50%;
     color: white;
 
 }
-.list-ios {
-    margin-left: 0;
-    margin-right: 0;
-    padding-top: 5px;
-    margin-top: 0px;
-    margin-bottom: 32px;
-}
 .headrow{
     text-align: center;
-    padding-top: 16px;
+    padding-top: 10px;
     background: white;
     padding-bottom: 10px;
     border-top: 1px solid lightgray;
@@ -218,5 +211,4 @@ h4{
     float: left;
 
   }
-  
 }

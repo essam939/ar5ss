@@ -33,20 +33,20 @@
           <ion-item style="background-color: inherit;">
             {{ product.ItemsQTY }}  {{ 'QTY' | translate }}
           </ion-item>
+
+          <ion-row>
+            <ion-col col-9>
+              <ion-icon class="staricon" *ngFor="let icon of icons(product.Rate); let i = index;" style="color:orange" [name]="icon"
+              (click)="customerRate(product.OrderID,product.ProductID,i+1)"
+              ></ion-icon>
+            </ion-col>
+            <ion-col col-3>
+            </ion-col>
+          </ion-row>
         </ion-col>
 
       </ion-row>
-      <ion-row>
-        <ion-col col-3>
-        </ion-col>
-        <ion-col col-6 style="font-size: xx-large;">
-          <ion-icon *ngFor="let icon of icons(product.Rate); let i = index;" style="color:orange" [name]="icon"
-          (click)="customerRate(product.OrderID,product.ProductID,i+1)"
-          ></ion-icon>
-        </ion-col>
-        <ion-col col-3>
-        </ion-col>
-      </ion-row>
+     
 
       <hr>
     </div>

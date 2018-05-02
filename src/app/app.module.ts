@@ -77,6 +77,7 @@ export function createTranslateLoader(http: Http) {
     DbService,
     NativeGeocoder,
     Keyboard,
+    FCM,
     OpenNativeSettings,
     Diagnostic
   ]

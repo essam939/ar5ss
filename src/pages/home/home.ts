@@ -28,6 +28,9 @@ export class HomePage {
   public MainService : MainService =  MainService ;
   public cities : any[] ;
   public pageLang : string = MainService.lang;
+  public can ; ctx ; step ;  steps = 0;
+  public delay = 20;
+
   constructor(public alertCtrl: AlertController,public navCtrl: NavController , public productService : ProductService ,
     public translate : TranslateService , private sanitizer: DomSanitizer , public customerService : CustomerService ,
               public commonService : CommonService , private barcodeScanner: BarcodeScanner ,
@@ -79,7 +82,7 @@ export class HomePage {
                 handler: () => {
                   console.log(this.customerService.cityName);
                   this.productService.groupShow().subscribe((res)=>{
-
+                 
                   });
                 }
               }
@@ -141,11 +144,11 @@ export class HomePage {
   {
     this.productService.groupShow().subscribe((res:any)=>{
       this.groupShow = res ;
-      console.log(this.groupShow);
       this.productService.hotads().subscribe((res)=>{
         console.log(res)
         this.hotads = res ;
         console.log("hot adds", this.hotads);
+        console.log(this.groupShow);
       });
       //console.log(res);
      //console.log(this.groupShow);
@@ -252,6 +255,7 @@ export class HomePage {
       this.productService.searchProduct(this.KeyWord).subscribe((res)=>{
         this.productSearchResult = res ;
         //this.commonService.dismissLoading();
+       
       });
     }
     else
@@ -283,10 +287,6 @@ export class HomePage {
   }
   openpro(){
     this.navCtrl.push("Profile");
-  }
-  hidekeybord(){
-    this.keyboard.close();
-    console.log("Keyboard closed");
   }
   opensett(){
     this.navCtrl.push("Settings");
@@ -359,6 +359,30 @@ export class HomePage {
       });
     });
   }
+
+  init() {
+    this.can = document.getElementById("MyCanvas1");
+    this.ctx = this.can.getContext("2d");
+    this.ctx.fillStyle = "blue";
+    this.ctx.font = "20pt Verdana";
+    this.ctx.textAlign = "center";
+    this.ctx.textBaseline = "middle";
+    this.step = 320;
+    this.steps = 0;
+    this.RunTextLeftToRight();
+}
+RunTextLeftToRight() {
+  this.step--;
+  this.ctx.clearRect(0, 0,  this.can.width,  this.can.height);
+  this.ctx.save();
+  this.ctx.translate(this.step, this.can.height / 2);
+  this.ctx.fillText("Welcome", 0, 0);
+  this.ctx.restore();
+  if ( this.step == this.steps)
+  this.step = 320;
+  if ( this.step > this.steps)
+      var t = setTimeout('RunTextLeftToRight()',  this.delay);
+}
   // showAlert() {
   //   this.translate.get('if you want another town go to the top choose it').subscribe(
   //     value => {
@@ -372,4 +396,4 @@ export class HomePage {
   //     }
   //   )
   // }
-  }
+}

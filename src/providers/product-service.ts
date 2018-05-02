@@ -30,7 +30,10 @@ export class ProductService {
   public getGroupProductsUrl : string = MainService.baseUrl+"getproductofgroupshow/";
   public getCitiesUrl : string =  MainService.ip+"getCity";
 
+ // "card.io.cordova.mobilesdk": "^2.1.0",
+    // "com.paypal.cordova.mobilesdk": "^3.5.0",
 
+    // "com.paypal.cordova.mobilesdk": {},
   public readonly sortByASC : number = 1 ;
   public readonly sortByDESC : number = 2 ;
 
@@ -101,6 +104,8 @@ export class ProductService {
     if(this.customerService.customer != null)
       userKey = this.customerService.customer.UserID;
     else userKey = this.customerService.deviceToken ;
+
+    
     let url = this.groupShowUrl + userKey + '/'+this.customerService.cityName+'?lang=' + MainService.lang  ;
     return this.http.get(url).map((res) => res.json());
     // let request = this.http.get(url).map((res) => res.json());

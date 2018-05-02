@@ -1,3 +1,4 @@
+import { FCM } from '@ionic-native/fcm';
 import { MainService } from './../providers/main-service';
 import {Component, ViewChild, NgZone} from '@angular/core';
 import {Platform, Tabs, Tab, NavController, AlertController} from 'ionic-angular';
@@ -40,7 +41,7 @@ export class MyApp {
   public  MainService = MainService;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
     private openNativeSettings: OpenNativeSettings,          
-    public customerService : CustomerService ,  private push :Push ,
+    public customerService : CustomerService ,public fcm:FCM,  private push :Push ,
               public translate : TranslateService , public network: Network ,
               public commonService : CommonService , public cache : CacheService ,
               public dbService : DbService , public zone: NgZone , public geolocation : Geolocation ,
@@ -48,6 +49,12 @@ export class MyApp {
               private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic,public nativeStorage:NativeStorage,private keyboard: Keyboard) {
     platform.ready().then(() => {
       let self = this;
+               this.fcm.getToken().then(token=>{
+            self.customerService.deviceToken=token
+
+console.log("token id"+token)
+})
+     
       cordova.plugins.diagnostic.isLocationEnabled(function(available){
         console.log(available);
         console.log("Location is " + (available ? "available" : "not available"));
@@ -85,7 +92,7 @@ export class MyApp {
         // err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION)
       );
     // this.checkLocation();
-      cache.setDefaultTTL(60 * 60 * 12)  ;
+      cache.setDefaultTTL(60 * 60 * 12);
       cache.setOfflineInvalidate(false);
       // this.cache.enableCache(false);
       // Okay, so the platform is ready and our plugins are available.
@@ -347,4 +354,3 @@ if(this.message==true){
   }
 }
 
->>>>>>> 45b69bd27c7ccb204d515ce0b9d1642fe47012ab

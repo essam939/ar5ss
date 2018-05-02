@@ -1,4 +1,3 @@
-
 <ion-header class="titlespace">
   <ion-navbar>
     <ion-title>
@@ -37,10 +36,10 @@ text-align: center;
 padding: 5px;
 background-color: white;
 font-size: 2rem;
-color: gray;" (click)="hidekeybord()">
+color: gray;">
 <ion-icon name="search"></ion-icon></ion-col>
   <ion-col col-7 style="padding:0;    background: white;">
-    <ion-searchbar [(ngModel)]="KeyWord" (keypress)="hideScreen()" (ionInput)="searchProduct()"  type="text" placeholder="{{ 'Search' | translate}}"> </ion-searchbar></ion-col>
+    <ion-searchbar [(ngModel)]="KeyWord" (ngModelChange)="hideScreen()" (ionInput)="searchProduct()"  type="text" placeholder="{{ 'Search' | translate}}"> </ion-searchbar></ion-col>
   <ion-col col-3 style="padding:0">
        <div style="text-align: center;background: white;padding-top: 10px;height: 42px;" (click)="scan()">
     <img style="width: 22px;" src="assets/imgs/barcode.png">
@@ -55,27 +54,26 @@ color: gray;" (click)="hidekeybord()">
 
 
 </ion-header>
-
 <ion-content>
   <!--(ionSlideDidChange)="slideChanged()"-->
-<div *ngIf="hotads?.Slider.length > 0" class="imgdiv">
+ <div *ngIf="hotads?.Slider.length > 0" class="imgdiv">
   <ion-slides *ngIf="hotads?.Mode[0].Mode == 1"  pager="true" [autoplay]="5000" [loop]="true"  dir="ltr"><!-- loop="true" -->
-    <ion-slide 
+    <ion-slide
       *ngFor="let image of hotads.Slider" (click)="goToHotOffers(image.CategoryID , image.ProductID)"
-      style="background-size: cover;" [style.background-image]="getBackground(image.Image)"
+      style="background-size: 100% 100%;" [style.background-image]="getBackground(image.Image)"
       >
     </ion-slide>
       </ion-slides>
     <ion-slides *ngIf="hotads?.Mode[0].Mode == 0"  dir="ltr">
-      <ion-slide 
+      <ion-slide
         *ngFor="let image of hotads.Slider"(click)="goToHotOffers(image.CategoryID , image.ProductID)"
-        style="background-size: cover;" [style.background-image]="getBackground(image.Image)"
+        style="background-size: 100% 100%;" [style.background-image]="getBackground(image.Image)"
         >
       </ion-slide>
     </ion-slides>
-
-
-</div>
+ 
+ 
+ </div>
 
 <div *ngIf="!showSearch" style="margin-bottom: 50px;">
   <div  class="products" *ngFor="let group of groupShow">
@@ -86,7 +84,7 @@ color: gray;" (click)="hidekeybord()">
        <!--{{group.Group.Item}}/<span  style="font-weight: bold;-->
                                                 <!--color: #525252;">-->
        <!--{{(group.Group.loadedNo != null)?group.Group.loadedNo : 3 }}</span></span>-->
-    <h5 style="font-size: 20px;margin-top: 1px;margin-bottom: -5px;" (click)="goToGroupProducts(group.Group.GroupShowID , group.Group.group_name)">
+    <h5 style="font-size: 20px;margin-top: 20px;margin-bottom: 0px;" (click)="goToGroupProducts(group.Group.GroupShowID , group.Group.group_name)">
     <span  style="color: #525252;margin-left: 5px;font-size: 14px;">{{'more'|translate}}</span></h5>
     <ion-scroll direction="y" >
       <!--infinite-scroll [lang]="MainService.lang" (onScrollMethod)="loadNext(group.Group.GroupShowID)"-->
@@ -103,18 +101,23 @@ color: gray;" (click)="hidekeybord()">
                   <img *ngIf="group.Group.GroupShowID == '4'&& MainService.lang == 'en'" class="hot" src="assets/imgs/hot.png">
                   <img *ngIf="group.Group.GroupShowID == '4' && MainService.lang == 'ar'" class="hot" src="assets/imgs/hot_ar.png">
                 </div>
-                <span style="
+                <div style="
     height: 115px;
     width: 155px;">
                 <img class="prodimg"  [src]="product.Image" >
-                </span>
+              </div>
                 <ion-row class="starrow">
                   <ion-icon *ngFor="let icon of icons(product.Rate); let i = index" style="color:orange" [name]="icon">
                   </ion-icon>
                 </ion-row>
-                <h4>
-                  <marquee *ngIf="MainService.lang == 'en'" direction="left" scrollamount="2">{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</marquee>
-                  <marquee *ngIf="MainService.lang == 'ar'" direction="right" scrollamount="2">{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</marquee></h4>
+                <h4 class="wrapper">
+                  <p *ngIf="MainService.lang == 'en'">{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</p>
+                  <p *ngIf="MainService.lang == 'ar'" >{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</p>
+                </h4>
+                <!-- <h4>
+                  <marquee  *ngIf="MainService.lang == 'en'">{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</marquee>
+                  <marquee  *ngIf="MainService.lang == 'ar'" >{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</marquee>
+                </h4> -->
                 <!--<h5 *ngIf="product.ProductPriceDesc != 0" > {{product.ProductPriceDesc}} {{ 'SAR' | translate}} </h5>-->
                 <!--<h5 style="color: red ; text-decoration: line-through;">{{product.ProductPrice}} {{ 'SAR' | translate}} </h5>-->
                 <h5 *ngIf="product.ProductPriceDesc != 0" > {{product.ProductPriceDesc}} {{ 'SAR' | translate}} </h5>
@@ -198,4 +201,3 @@ color: gray;" (click)="hidekeybord()">
 </ion-row>
 
 </ion-content>
-
