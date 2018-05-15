@@ -11,12 +11,13 @@ import {MainService} from "../../providers/main-service";
   templateUrl: 'category.html',
 })
 export class CategoryPage {
+  public check=1;
   public category_id : number ;
   public category_name : string ;
   public categoryProducts : any[] ;
   public cart : any[] = [] ;
   public defaultSortType : number  = this.productService.sortByASC;
-  public sortType : number  = this.productService.sortByDESC;
+  public sortType : number  = this.productService.sortByASC;
   public CurrentPage : number = 1 ;
   public showing : string = 'list';
   public cartNo : number = 0 ;
@@ -49,9 +50,14 @@ constructor(public navCtrl: NavController, public navParams: NavParams,
   }
   sortBy()
   {
+    // if(this.check==1){
+    //   this.sortType=2
+    //   this.check=0;
+    // }
     if(this.sortType == this.productService.sortByASC)
     {
-      this.productService.getProductSort(this.productService.sortByASC ,this.category_id ).subscribe((res)=>{
+      console.log(this.sortType)
+      this.productService.getProductSort(this.productService.sortByDESC ,this.category_id ).subscribe((res)=>{
         this.sortType = this.productService.sortByDESC;
         this.categoryProducts = res ;
       });
@@ -61,11 +67,15 @@ constructor(public navCtrl: NavController, public navParams: NavParams,
       //     return 1;
       //  return 0;
       // });
+      this.check=1;
+
     }
 
     else
       {
-        this.productService.getProductSort(this.productService.sortByDESC ,this.category_id ).subscribe((res)=>{
+        this.check=0;
+
+        this.productService.getProductSort(this.productService.sortByASC ,this.category_id ).subscribe((res)=>{
           this.sortType = this.productService.sortByASC;
           this.categoryProducts = res ;
         });
@@ -80,6 +90,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams,
   }
   getcategoryProducts()
   {
+    console.log(this.category_id,this.CurrentPage,this.defaultSortType)
       this.productService.categoryProducts(this.category_id,this.CurrentPage,this.defaultSortType).subscribe((res) => {
         this.categoryProducts = res.data;
       });
@@ -174,8 +185,12 @@ constructor(public navCtrl: NavController, public navParams: NavParams,
   doInfinite(infiniteScroll)
   {
     this.CurrentPage++;
+    console.log(this.category_id, this.CurrentPage, this.sortType)
+
     this.productService.categoryProducts(this.category_id, this.CurrentPage, this.sortType).subscribe((products) => {
       infiniteScroll.complete();
+      console.log(this.categoryProducts);
+
       for (let i = 0 ; i < products.data.length ; i++)
       {
         this.categoryProducts.push(products.data[i]);

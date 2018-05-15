@@ -101,18 +101,23 @@ color: gray;">
                   <img *ngIf="group.Group.GroupShowID == '4'&& MainService.lang == 'en'" class="hot" src="assets/imgs/hot.png">
                   <img *ngIf="group.Group.GroupShowID == '4' && MainService.lang == 'ar'" class="hot" src="assets/imgs/hot_ar.png">
                 </div>
-                <span style="
+                <div style="
     height: 115px;
     width: 155px;">
                 <img class="prodimg"  [src]="product.Image" >
-                </span>
+              </div>
                 <ion-row class="starrow">
                   <ion-icon *ngFor="let icon of icons(product.Rate); let i = index" style="color:orange" [name]="icon">
                   </ion-icon>
                 </ion-row>
-                <h4>
-                  <marquee *ngIf="MainService.lang == 'en'" direction="left" scrollamount="2">{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</marquee>
-                  <marquee *ngIf="MainService.lang == 'ar'" direction="right" scrollamount="2">{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</marquee></h4>
+                <h4 class="wrapper">
+                  <p *ngIf="MainService.lang == 'en'">{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</p>
+                  <p *ngIf="MainService.lang == 'ar'" >{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</p>
+                </h4>
+                <!-- <h4>
+                  <marquee  *ngIf="MainService.lang == 'en'">{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</marquee>
+                  <marquee  *ngIf="MainService.lang == 'ar'" >{{product.product_name}} , {{(MainService.lang == 'ar') ? product.size : product.sizeen}}</marquee>
+                </h4> -->
                 <!--<h5 *ngIf="product.ProductPriceDesc != 0" > {{product.ProductPriceDesc}} {{ 'SAR' | translate}} </h5>-->
                 <!--<h5 style="color: red ; text-decoration: line-through;">{{product.ProductPrice}} {{ 'SAR' | translate}} </h5>-->
                 <h5 *ngIf="product.ProductPriceDesc != 0" > {{product.ProductPriceDesc}} {{ 'SAR' | translate}} </h5>

@@ -20,6 +20,7 @@ import { ResourceLoader } from '@angular/compiler';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Keyboard } from '@ionic-native/keyboard';
 import { OpenNativeSettings } from '@ionic-native/open-native-settings';
+import {FCM} from '@ionic-native/fcm';
 
 declare var cordova: any;
 @Component({
@@ -39,7 +40,7 @@ export class MyApp {
   @ViewChild('nav') nav:NavController;
   public  MainService = MainService;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
-    private openNativeSettings: OpenNativeSettings,          
+    private openNativeSettings: OpenNativeSettings,public fcm:FCM,          
     public customerService : CustomerService ,  private push :Push ,
               public translate : TranslateService , public network: Network ,
               public commonService : CommonService , public cache : CacheService ,
@@ -48,6 +49,10 @@ export class MyApp {
               private androidPermissions: AndroidPermissions,private diagnostic: Diagnostic,public nativeStorage:NativeStorage,private keyboard: Keyboard) {
     platform.ready().then(() => {
       let self = this;
+      this.fcm.getToken().then(token=>{
+        self.customerService.deviceToken=token;
+        console.log(token);
+      });
       cordova.plugins.diagnostic.isLocationEnabled(function(available){
         console.log(available);
         console.log("Location is " + (available ? "available" : "not available"));

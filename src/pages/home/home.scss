@@ -114,7 +114,7 @@ page-home {
     }
  }
 .imgbrand{
-  display: block;
+  display: inline-block;
   width: 40%;
   margin-top: 10px;
 }
@@ -169,7 +169,7 @@ page-home {
  .hot{
     width: 24%;
     float: right;
-    margin-top: -45px;
+    margin-top: 10px;
  }
   .slides{
     height: 155px;
@@ -198,12 +198,12 @@ page-home {
     border-radius: 7px;
     margin-top: 10px;
 
-    .prodimg{
-      height: 100px;
-      width: 65%;
+    // .prodimg{
+    //   height: 100px;
+    //   width: 65%;
 
-      margin-top: 5%;
-    }
+    //   margin-top: 5%;
+    // }
 
     .row{
       padding-left: 10px;
@@ -214,9 +214,9 @@ page-home {
     }
 
     h4{
-            padding:0 10px;
             margin: 5px 0;
             font-size: 15px;
+         
     }
       h5{
         color:gray;
@@ -335,4 +335,26 @@ page-home {
     background-position: 8px center;
      box-shadow: none ;
 }
+
+.wrapper {
+  position: relative;
+  height: 20px;
+  width: 100%;
+}
+
+.wrapper p {
+  position: absolute;
+  margin: 0;
+  line-height: 20px;
+  font-size: 15px;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+
 }

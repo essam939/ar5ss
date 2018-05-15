@@ -358,3 +358,15 @@ alert{
 .alert-md .alert-wrapper{
   border-radius: 20px;
 }
+[dir="rtl"] .wrapper p {
+  position: absolute;
+  margin: 0;
+  line-height: 20px;
+  font-size: 15px;
+  white-space: nowrap;
+  animation: marqueear 10s linear infinite;
+}
+@keyframes marqueear {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

@@ -25,7 +25,7 @@ export class CustomerService {
   public lat : any ;
   public lang : any ;
   public online : boolean = true ;
-  public deviceToken : string = null;
+  public deviceToken : string = "";
   public customerCreateUrl : string = MainService.baseUrl+"register/";
   public customerLoginUrl : string = MainService.baseUrl+"login/";
   public customerForgetPasswordUrl : string = MainService.baseUrl+"forgetpassword/";
@@ -89,7 +89,7 @@ export class CustomerService {
     return this.http.post(this.setCityForGuestUrl,body).map((res) => res.json());
   }
   getCities(){
-    return this.http.get(this.getCitiesUrl).map((res) => res.json());
+    return this.http.get(this.getCitiesUrl+"?lnag="+MainService.lang).map((res) => res.json());
   }
   pushLocalWishList()
   {

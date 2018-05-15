@@ -28,8 +28,8 @@ export class ProductService {
   public getProductPropertyUrl : string = MainService.baseUrl+"getPoductValue/";
   public getProductSortUrl : string = MainService.baseUrl+"getproductsort/";
   public getGroupProductsUrl : string = MainService.baseUrl+"getproductofgroupshow/";
-  public getCitiesUrl : string =  MainService.ip+"getCity";
-
+  public getCitiesUrl : string =  MainService.baseUrl+"getCity";
+  public ahmedCitUrl:string = MainService.baseUrl+"city";
 
   public readonly sortByASC : number = 1 ;
   public readonly sortByDESC : number = 2 ;
@@ -142,7 +142,7 @@ export class ProductService {
       .map((res) => res.json());
     // res.results[res.results.length-2].address_components[0].long_name
   }
-  getCities():Observable<any>{
-    return this.http.get(this.getCitiesUrl).map((res) => res.json());
+  getCities(lang):Observable<any>{
+    return this.http.get(this.ahmedCitUrl+"?lnag="+lang).map((res) => res.json());
   }
 }
