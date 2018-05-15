@@ -26,8 +26,11 @@ export class LoginPage {
 
 
   customerLogin()
-  {
+  {console.log(this.customer.Email , this.customer.Password);
+
+    this.commonService.presentToast(this.customer.Email)
     this.customerService.customerLogin(this.customer.Email,this.customer.Password).subscribe((res)=>{
+
       if(res.Error)
       {
         this.commonService.presentToast(res.Error);
@@ -36,6 +39,8 @@ export class LoginPage {
       {
         this.successlogin(res);
       }
+    },e=>{
+      console.log(e)
     });
   }
   successlogin(customer)
@@ -46,7 +51,6 @@ export class LoginPage {
       value => {
         // value is our translated string
         this.commonService.presentToast(value);
-
       }
     );
     this.navCtrl.push("HomePage");
