@@ -255,6 +255,7 @@ export class HomePage {
       this.productService.searchProduct(this.KeyWord).subscribe((res)=>{
         this.productSearchResult = res ;
         //this.commonService.dismissLoading();
+       
       });
     }
     else

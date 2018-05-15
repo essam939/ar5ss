@@ -31,6 +31,7 @@ export class ProductService {
   public getCitiesUrl : string =  MainService.baseUrl+"getCity";
   public ahmedCitUrl:string = MainService.baseUrl+"city";
 
+    // "com.paypal.cordova.mobilesdk": {},
   public readonly sortByASC : number = 1 ;
   public readonly sortByDESC : number = 2 ;
 
@@ -101,6 +102,8 @@ export class ProductService {
     if(this.customerService.customer != null)
       userKey = this.customerService.customer.UserID;
     else userKey = this.customerService.deviceToken ;
+
+    
     let url = this.groupShowUrl + userKey + '/'+this.customerService.cityName+'?lang=' + MainService.lang  ;
     return this.http.get(url).map((res) => res.json());
     // let request = this.http.get(url).map((res) => res.json());

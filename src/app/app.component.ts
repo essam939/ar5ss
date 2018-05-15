@@ -1,3 +1,4 @@
+import { FCM } from '@ionic-native/fcm';
 import { MainService } from './../providers/main-service';
 import {Component, ViewChild, NgZone} from '@angular/core';
 import {Platform, Tabs, Tab, NavController, AlertController} from 'ionic-angular';
@@ -20,7 +21,6 @@ import { ResourceLoader } from '@angular/compiler';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Keyboard } from '@ionic-native/keyboard';
 import { OpenNativeSettings } from '@ionic-native/open-native-settings';
-import {FCM} from '@ionic-native/fcm';
 
 declare var cordova: any;
 @Component({
@@ -90,7 +90,7 @@ export class MyApp {
         // err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION)
       );
     // this.checkLocation();
-      cache.setDefaultTTL(60 * 60 * 12)  ;
+      cache.setDefaultTTL(60 * 60 * 12);
       cache.setOfflineInvalidate(false);
       // this.cache.enableCache(false);
       // Okay, so the platform is ready and our plugins are available.

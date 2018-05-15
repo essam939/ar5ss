@@ -15,7 +15,7 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-$tabs-md-tab-icon-color:crimson;
+$tabs-tab-icon-color:crimson;
 
 .home{
   background-image: url('assets/imgs/tab_bar_home_active.png');
@@ -38,7 +38,7 @@ $tabs-md-tab-icon-color:crimson;
 .button{
     text-transform: none;
 }
-.toolbar-title-md{
+.toolbar-title{
   text-align: center;
   //font-size: 0.7em;
 }
@@ -48,7 +48,7 @@ $tabs-md-tab-icon-color:crimson;
 
    }
 
- .back-button-md{
+ .back-button{
      margin-left: 0;
      margin-right: 0;
  }
@@ -64,7 +64,7 @@ $tabs-md-tab-icon-color:crimson;
 .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
   color: crimson;
 }
-$tabs-md-tab-text-color-active:crimson;
+$tabs-tab-text-color-active:crimson;
 }
 .scroll-content{
   margin-bottom: 0 !important;
@@ -83,7 +83,7 @@ $tabs-md-tab-text-color-active:crimson;
       text-align: center;
     }
 }
-.tabs-md .tab-button[id=tab-t0-0] {
+.tabs .tab-button[id=tab-t0-0] {
   min-height: 5.6rem;
   font-weight: normal;
   color: rgba(60, 60, 60, 0.7);
@@ -92,14 +92,14 @@ $tabs-md-tab-text-color-active:crimson;
   background-position:center;
   background-image: url('../assets/imgs/tab_bar_home.png');
 }
- .tabs-md .tab-button[aria-selected=true][id=tab-t0-0]   {
+ .tabs .tab-button[aria-selected=true][id=tab-t0-0]   {
   color: crimson;
   padding: 0;
   background-repeat: no-repeat;
   background-position:center;
   background-image: url('../assets/imgs/tab_bar_home_active.png');
 }
-.tabs-md .tab-button[id=tab-t0-1] {
+.tabs .tab-button[id=tab-t0-1] {
   min-height: 5.6rem;
   font-weight: normal;
   color: rgba(60, 60, 60, 0.7);
@@ -108,14 +108,14 @@ $tabs-md-tab-text-color-active:crimson;
   background-position:center;
   background-image: url('../assets/imgs/tab_bar_category.png');
 }
-.tabs-md .tab-button[aria-selected=true][id=tab-t0-1]   {
+.tabs .tab-button[aria-selected=true][id=tab-t0-1]   {
   color: crimson;
   padding: 0;
   background-repeat: no-repeat;
   background-position:center;
   background-image: url('../assets/imgs/tab_bar_category_active.png');
 }
-.tabs-md .tab-button[id=tab-t0-2] {
+.tabs .tab-button[id=tab-t0-2] {
   min-height: 5.6rem;
   font-weight: normal;
   color: rgba(60, 60, 60, 0.7);
@@ -124,14 +124,14 @@ $tabs-md-tab-text-color-active:crimson;
   background-position:center;
   background-image: url('../assets/imgs/tab_bar_heart.png');
 }
-.tabs-md .tab-button[aria-selected=true][id=tab-t0-2]   {
+.tabs .tab-button[aria-selected=true][id=tab-t0-2]   {
   color: crimson;
   padding: 0;
   background-repeat: no-repeat;
   background-position:center;
   background-image: url('../assets/imgs/tab_bar_heart_active.png');
 }
-.tabs-md .tab-button[id=tab-t0-3] {
+.tabs .tab-button[id=tab-t0-3] {
   min-height: 5.6rem;
   font-weight: normal;
   color: rgba(60, 60, 60, 0.7);
@@ -140,14 +140,14 @@ $tabs-md-tab-text-color-active:crimson;
   background-position:center;
   background-image: url('../assets/imgs/tab_bar_profile.png');
 }
-.tabs-md .tab-button[aria-selected=true][id=tab-t0-3]   {
+.tabs .tab-button[aria-selected=true][id=tab-t0-3]   {
   color: crimson;
   padding: 0;
   background-repeat: no-repeat;
   background-position:center;
   background-image: url('../assets/imgs/tab_bar_profile_active.png');
 }
-.tabs-md .tab-button[id=tab-t0-4] {
+.tabs .tab-button[id=tab-t0-4] {
   min-height: 5.6rem;
   font-weight: normal;
   color: rgba(60, 60, 60, 0.7);
@@ -156,7 +156,7 @@ $tabs-md-tab-text-color-active:crimson;
   background-position:center;
   background-image: url('../assets/imgs/tab_bar_settings.png');
 }
-.tabs-md .tab-button[aria-selected=true][id=tab-t0-4]   {
+.tabs .tab-button[aria-selected=true][id=tab-t0-4]   {
   color: crimson;
   padding: 0;
   background-repeat: no-repeat;
@@ -168,7 +168,7 @@ $tabs-md-tab-text-color-active:crimson;
 
 
 
-.toast-md .toast-message {
+.toast .toast-message {
   color: white;
   background-color: crimson;
   margin: auto;
@@ -186,7 +186,7 @@ $tabs-md-tab-text-color-active:crimson;
   max-width: 70%;
   min-width: 30%;
 }
-.toast-md .toast-wrapper {
+.toast .toast-wrapper {
   background: transparent;
 }
 .toast-ios .toast-wrapper {
@@ -259,6 +259,30 @@ $tabs-md-tab-text-color-active:crimson;
 .toolbar-ios .segment-ios{
   width: 20%;
 }
+[dir="ltr"] .segment-ios .segment-button:first-of-type{
+  border: none;
+    position: relative;
+    top: 5px;
+    left: 300px;
+}
+[dir="ltr"] .segment-ios .segment-button:last-of-type{
+  border: none;
+    position: relative;
+    top: 5px;
+    left: 300px;
+}
+[dir="rtl"] .segment-ios .segment-button:first-of-type{
+    border: none;
+    position: relative;
+    top: 5px;
+    right: 300px;
+}
+[dir="rtl"] .segment-ios .segment-button:last-of-type{
+    border: none;
+    position: relative;
+    top: 5px;
+    right: 300px;
+}
 .imgbrandd{
   width: 60px;
   float: right;
@@ -287,6 +311,14 @@ $tabs-md-tab-text-color-active:crimson;
 
   height: 55px;
 }
+.tabs-ios .tabbar {
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-top: 0.55px solid rgba(0, 0, 0, 0.3);
+    background: #f8f8f8;
+    height: 62px;
+}
 
 @font-face {
   font-family: 'hacen-samra-lt';
@@ -300,20 +332,36 @@ $tabs-md-tab-text-color-active:crimson;
 [dir="rtl"] .categorytitle{
   margin-left: 30px;
 }
-.titlepadding{
-  padding-right: 53px;
-}
 [dir="rtl"] .titlepadding{
-  padding-left: 113px;
+  padding-right: -1px;
+}
+[dir="ltr"] .titlepadding{
+  padding-right: 20px;
 }
 .titeldetails{
-  margin-left: 69px;
+  margin-left: 96px;
 }
 [dir="rtl"] .titeldetails{
-  margin-right: 75px;
+ margin: auto;
+ width: 35%;
 
 }
+.tabs-ios .tab-button.has-title-only .tab-button-text{
+       line-height: normal; 
+}
+
 .cartNoInner {
+  display: inline;
+  font-size: 12px;
+  color: crimson;
+  position: fixed;
+  top: -10px;
+  right: 26px;
+  border: 1px solid black;
+  padding: 0 4px;
+  border-radius: 50%;
+}
+.cartNoinner {
   display: inline;
   font-size: 12px;
   color: crimson;
@@ -323,6 +371,19 @@ $tabs-md-tab-text-color-active:crimson;
   border: 1px solid black;
   padding: 0 4px;
   border-radius: 50%;
+}
+[dir="ltr"] .cartNoinner {
+    display: inline;
+    font-size: 12px;
+    color: crimson;
+    position: fixed;
+    top: -10px;
+    /* right: 30px; */
+    left: 14px;
+    border: 1px solid black;
+    padding: 0 4px;
+    border-radius: 50%;
+    width: 16px;
 }
 //.prodimg{
 //  max-height: 100%;
@@ -355,7 +416,7 @@ alert{
   background-color: white !important;
   color: black !important;
 }
-.alert-md .alert-wrapper{
+.alert .alert-wrapper{
   border-radius: 20px;
 }
 [dir="rtl"] .wrapper p {
@@ -369,4 +430,21 @@ alert{
 @keyframes marqueear {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+
+}
+.back-button-text-ios {
+    /* letter-spacing: -.01em; */
+    display: none;
+}
+.cartIcons{
+      width: 20px;
+    position: absolute;
+    right: 5px;
+    top: 15px;
+}
+[dir="ltr"] .cartIcons {
+    width: 20px;
+    position: absolute;
+    right: 354px;
+    top: 5px;
 }

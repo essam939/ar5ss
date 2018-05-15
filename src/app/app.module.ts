@@ -30,7 +30,6 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { FCM } from '@ionic-native/fcm';
 
 
-
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -78,6 +77,7 @@ export function createTranslateLoader(http: Http) {
     DbService,
     NativeGeocoder,
     Keyboard,
+    FCM,
     OpenNativeSettings,
     Diagnostic,
     FCM

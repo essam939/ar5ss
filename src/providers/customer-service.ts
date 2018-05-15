@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http , Headers ,RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {MainService} from "./main-service";
 import {NativeStorage} from "@ionic-native/native-storage";
@@ -8,6 +8,7 @@ import {TranslateService} from "@ngx-translate/core";
 import {Geolocation} from "@ionic-native/geolocation";
 import {Observable} from "rxjs";
 import {DbService} from "./db-service";
+import { FCM } from '@ionic-native/fcm';
 
 /*
   Generated class for the CustomerService provider.
@@ -76,7 +77,7 @@ export class CustomerService {
   public static readonly LastOrderCode = 2 ;
 
 
-  constructor(public http: Http,public nativeStorage : NativeStorage,
+  constructor(private fcm: FCM,public http: Http,public nativeStorage : NativeStorage,
               public commonService : CommonService, public translateService :TranslateService ,
               public geolocation: Geolocation  , public dbService : DbService) {
     console.log('Hello CustomerService Provider');
@@ -388,6 +389,11 @@ export class CustomerService {
   }
   addToCartOnline(ProductID : number , SellerID : number)
   {
+    let self=this;
+          this.fcm.getToken().then(token=>{
+self.deviceToken = token;
+console.log("token id"+token)
+})
     let body ;
     if(this.customer != null)
     {
@@ -534,13 +540,27 @@ export class CustomerService {
     return this.http.post(this.customerCreateUrl+MainService.lang,customer).map((res) => res.json());
   }
   customerLogin(Email : string , Password : string )
-  {
-    let customer = {
-      Email : Email ,
-      Password : Password ,
-      TokenID : this.deviceToken
-    };
-    return this.http.post(this.customerLoginUrl+MainService.lang,customer).map((res) => res.json());
+  { 
+    
+    const headerDict = {
+      
+    }
+                                                                                                                                                                               
+      let headers = new Headers({
+          'Content-Type'  : 'application/json'
+      });
+    
+      // let headers = new Headers(requestOptions);
+      let options = new RequestOptions({headers:headers})
+      let customer = JSON.stringify({
+        Email : Email ,
+        Password : Password ,
+        TokenID : this.deviceToken
+      });
+
+    console.log(headers);
+
+    return this.http.post(this.customerLoginUrl+MainService.lang,customer, options).map((res) => res.json());
   }
   customerStorageSave(customer:any){
     this.nativeStorage.setItem('customer', customer)

@@ -46,9 +46,10 @@ page-home {
             width: 100%;
         }
 }
-  .products{
-    height: 275px;
-    margin-bottom: 50px;
+  .products{  
+    height: 310px;
+    margin-bottom: 30px;
+    margin-top: 21px;
     .prodh6{
       text-align: start;
       margin: 0;
@@ -75,7 +76,7 @@ page-home {
     //padding: 13%;
             .scroll-content{
                 white-space: nowrap;
-                height: 290px;
+                height:305px;
                 overflow-x:scroll;
                 margin-top: 20px;
                 margin-right: auto;
@@ -92,6 +93,7 @@ page-home {
     margin: 0;
     margin-left: 8px;
     margin-top: 15px;
+    margin-bottom: 15px;
     background: whitesmoke;
  }
 
@@ -357,4 +359,11 @@ page-home {
 }
 
 
+.select-ios .select-icon {
+  display:none;
+}
+
+.swiper-slide .swiper-slide-active {
+background-size: 100% 100% !important;
+}
 }
